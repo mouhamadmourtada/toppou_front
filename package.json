@@ -17,7 +17,14 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "tailwind-merge": "^2.3.0",
-    "tailwindcss-animate": "^1.0.7"
+    "tailwindcss-animate": "^1.0.7",
+    "@windmill/react-ui": "^0.6.0",
+    "antd": "^5.17.0",
+    "axios": "^1.6.8",
+    "react-hook-form": "^7.51.4",
+    "vite-plugin-svgr": "^4.2.0",
+    "react-router-dom": "^6.23.0"
+
   },
   "devDependencies": {
     "@types/node": "^20.14.2",

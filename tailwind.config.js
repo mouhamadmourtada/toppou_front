@@ -6,6 +6,7 @@ module.exports = {
     './components/**/*.{js,jsx}',
     './app/**/*.{js,jsx}',
     './src/**/*.{js,jsx}',
+    
   ],
   prefix: "",
   theme: {
@@ -18,6 +19,23 @@ module.exports = {
     },
     extend: {
       colors: {
+
+        'bleu_clair' : '#E9F1FA',
+        'bleu_fonce' : '#00ABE4',
+        'myWhite' : '#FFFFFF',
+
+        "primaire" : '#E9F1FA',
+        "secondaire" : "#00ABE4",
+        "tertiaire" : "#F2F2F2",
+
+        "jay-primaire" : '#E9F1FA',
+        "jay-secondaire" : "#00ABE4",
+        "jay-tertiaire" : "#F2F2F2",
+        'chprimary':'#00719c',
+        'chsecondary':'#009BD6',
+        'chaccent':'#00415a',
+
+
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",

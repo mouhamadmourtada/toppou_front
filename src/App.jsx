@@ -1,20 +1,22 @@
-import { useState } from 'react'
-// import reactLogo from './assets/react.svg'
-// import viteLogo from '/vite.svg'
-import './App.css'
-import { Button } from "@/components/ui/button"
+import React from "react";
+
+// import AuthProvider from "./provider/authProvider";
+import {AuthProvider} from "./provider/authProvider";
+import Routes from "./routes/index";
+import { SidebarProvider } from './context/SidebarContext'
+
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <>
-      <p>hello world</p>
+    <AuthProvider>
+  <SidebarProvider>
+      <div>
+        <Routes />
 
-      <Button onClick={() => setCount((count) => count + 1)}> count is: {count} </Button>
-
-    </>
-  )
+      </div>
+      </SidebarProvider>
+   </AuthProvider>
+  );
 }
 
-export default App
+export default App;
