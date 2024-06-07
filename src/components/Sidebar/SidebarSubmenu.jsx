@@ -38,7 +38,7 @@ function SidebarSubmenu({ route }) {
               </AccordionTrigger>
               <AccordionContent>
               <ul
-                className="p-2 bg-gray-100 mt-1 border border-gray-200 border-1 mx-2 space-y-2 overflow-hidden text-sm font-medium text-gray-500 rounded-md shadow-xl bg-gray-200 "
+                className="bg-gray-100 border border-gray-200 border-1 space-y-2 overflow-hidden text-sm font-medium text-gray-500 shadow-xl bg-gray-200 "
                 aria-label="submenu"
               >
                 {route.routes.map((r) => (
