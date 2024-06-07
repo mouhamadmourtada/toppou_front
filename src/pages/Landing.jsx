@@ -10,7 +10,7 @@ const Landing = () => {
 <script src="//unpkg.com/alpinejs" defer></script>
 
 <main>
-    <header class="bg-chprimary pt-4">
+    <header class="bg-primaire pt-4">
         <nav x-data="{ isOpen: false }" class="container mx-auto px-6 lg:flex lg:items-center lg:justify-between">
             <div class="flex items-center justify-between">
             <div className=" bg-white  rounded-full">
@@ -33,7 +33,7 @@ const Landing = () => {
 
             {/* <!-- Mobile Menu open: "block", Menu closed: "hidden" --> */}
             <div  class="inset-x-0 z-20 w-full px-6 py-4 shadow-md transition-all duration-300 ease-in-out lg:relative lg:top-0 lg:mt-0 lg:flex lg:w-auto lg:translate-x-0 lg:items-center lg:bg-transparent lg:p-0 lg:opacity-100 lg:shadow-none lg:dark:bg-transparent">
-                <Link to="/register" class="mt-4 block h-10 transform rounded-md border px-7 py-2 text-center text-sm capitalize  bg-chprimary   text-white  transition-colors duration-300 hover:bg-gray-100 dark:text-ch dark:hover:bg-gray-700 lg:mt-0 lg:w-auto"> Devenir chauffeur </Link>
+                <Link to="/register" class="mt-4 block h-10 transform rounded-md border px-7 py-2 text-center text-sm capitalize  bg-primaire   text-white  transition-colors duration-300 hover:bg-gray-100 dark:text-ch dark:hover:bg-gray-700 lg:mt-0 lg:w-auto"> Devenir chauffeur </Link>
             </div>
         </nav>
 
@@ -72,16 +72,16 @@ const Landing = () => {
 
     <section class="bg-white ">
     <div class="container mx-auto px-6 pt-28">
-        <h1 class="text-2xl font-semibold text-chprimary lg:text-4xl">Nous proposons</h1>
+        <h1 class="text-2xl font-semibold text-primaire lg:text-4xl">Nous proposons</h1>
 
         <div class="mt-8 lg:-mx-12 lg:flex xl:mt-16">
         <div class="lg:mx-12">
             <h1 class="text-xl font-semibold text-gray-800">Dieul rek dem</h1>
 
             <div class="mt-4 space-y-4 lg:mt-8">
-            <a href="#" class="block text-chprimary hover:underline">Trouver votre covoitureur</a>
-            <a href="#" class="block text-chprimary hover:underline">Discutez du prix</a>
-            <a href="#" class="block text-chprimary hover:underline">Service rapide et securise</a>
+            <a href="#" class="block text-primaire hover:underline">Trouver votre covoitureur</a>
+            <a href="#" class="block text-primaire hover:underline">Discutez du prix</a>
+            <a href="#" class="block text-primaire hover:underline">Service rapide et securise</a>
             </div>
         </div>
 
@@ -114,7 +114,7 @@ const Landing = () => {
   
 
     <section class="min-h-screen bg-white  lg:flex">
-    <div class="flex w-full flex-col justify-center p-8 lg:w-1/2 lg:bg-chprimary  lg:px-12 xl:px-32">
+    <div class="flex w-full flex-col justify-center p-8 lg:w-1/2 lg:bg-primaire  lg:px-12 xl:px-32">
         <h1 class="text-3xl font-semibold capitalize text-gray-800 dark:text-white lg:text-5xl">Nous contactez.</h1>
 
         <p class="mt-4 text-white">Ask us everything and we would love to hear from you</p>

@@ -10,21 +10,23 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@radix-ui/react-accordion": "^1.1.2",
+    "@radix-ui/react-avatar": "^1.0.4",
+    "@radix-ui/react-dropdown-menu": "^2.0.6",
     "@radix-ui/react-slot": "^1.0.2",
+    "@windmill/react-ui": "^0.6.0",
+    "antd": "^5.17.0",
+    "axios": "^1.6.8",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",
     "lucide-react": "^0.383.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-hook-form": "^7.51.4",
+    "react-router-dom": "^6.23.0",
     "tailwind-merge": "^2.3.0",
     "tailwindcss-animate": "^1.0.7",
-    "@windmill/react-ui": "^0.6.0",
-    "antd": "^5.17.0",
-    "axios": "^1.6.8",
-    "react-hook-form": "^7.51.4",
-    "vite-plugin-svgr": "^4.2.0",
-    "react-router-dom": "^6.23.0"
-
+    "vite-plugin-svgr": "^4.2.0"
   },
   "devDependencies": {
     "@types/node": "^20.14.2",
@@ -37,7 +39,7 @@
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-react-refresh": "^0.4.6",
     "postcss": "^8.4.38",
-    "tailwindcss": "^3.4.3",
+    "tailwindcss": "^3.4.4",
     "vite": "^5.2.0"
   }
 }

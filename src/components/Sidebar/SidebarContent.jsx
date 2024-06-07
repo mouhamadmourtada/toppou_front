@@ -17,19 +17,24 @@ function SidebarContent() {
     <div className="py-4 text-gray-500 ">
       
       <Logo/>
+      <hr className="mt-3" />
+
       <ul className="mt-6">
         {routes.map((route) =>
           route.routes ? (
             <SidebarSubmenu route={route} key={route.name} />
           ) : (
-            <li className="relative py-1" key={route.name}>
+            <li className="relative py-1 my-1 px-3" key={route.name}>
               <NavLink
                 exact
                 to={route.path}
                 
-                className={({ isActive }) => 
-                  isActive ? "py-2  rounded px-5 inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 bg-secondaire text-white hover:text-white" : "py-2  rounded px-5 inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 text-secondaire"
-                }                
+                className={({ isActive }) => {
+                  const baseClasses = "font-bold rounded-lg w-full py-2 px-5 inline-flex items-center text-sm font-semibold transition-colors duration-150 ";
+                  const activeClasses = "text-white bg-primaire border-r-4 border-r-primaire";
+                  const inactiveClasses = "hover:bg-gris_clair text-tertiaire";
+                  return `${baseClasses} ${isActive ? activeClasses : inactiveClasses}`;
+                }}             
               >
                
                 <MdIcon className="w-5 h-5" aria-hidden="true" icon={route.icon} />
