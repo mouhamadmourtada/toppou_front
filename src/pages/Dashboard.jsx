@@ -38,7 +38,7 @@ const Dashboard = () => {
             <Breadcrumb>
                 <BreadcrumbList>
                     <BreadcrumbItem>
-                        <BreadcrumbLink className="text-tertiaire"  href="/">Home</BreadcrumbLink>
+                        <BreadcrumbLink className="text-tertiaire"  href="/">Homeq</BreadcrumbLink>
                     </BreadcrumbItem>
                     <BreadcrumbSeparator>
                     {/* <SlashIcon /> */}
