@@ -1,6 +1,7 @@
 import React, { useContext, useState } from 'react'
 import { SidebarContext } from '../context/SidebarContext'
 import { useAuth } from "../provider/authProvider";
+import StorageService from '../services/StorageService';
 
 import {
   SearchIcon,
@@ -31,6 +32,7 @@ function Header() {
 
   const logout = () => {
     console.log("logout")
+    StorageService.clear();
       setToken(null);
 
   }
