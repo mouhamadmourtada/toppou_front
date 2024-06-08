@@ -3,7 +3,7 @@ import React from 'react';
 const RecapAdmin = () => {
     return (
         <div>
-            recap admin
+            recap admin à prouver
         </div>
     );
 }
