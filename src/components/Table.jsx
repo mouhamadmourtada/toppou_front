@@ -13,11 +13,11 @@ const Table = ({data, columns, actions}) => {
     
 
     return (
-        <div>
+        <div className='bg-white'>
             <div className="overflow-x-auto rounded shadow-xl">
                 <table className="table-auto w-full">
                     <thead className='align-left' >
-                        <tr className='bg-secondaire  text-white text-xs font-semi-bold tracking-wide uppercase'>
+                        <tr className='bg-primaire  text-white text-xs font-semi-bold tracking-wide uppercase'>
                             {/* text-xs font-black tracking-wide text-left text-maquette-gris uppercase border-b bg-first-blue */}
                             {columns.map((column, index) => (
                                 <th className='px-2 text-left py-3 uppercase'  key={index}>{column}</th>

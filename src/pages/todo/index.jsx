@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import {Outlet, Link, useNavigate} from "react-router-dom";
 import Table from "../../components/Table";
 import ActionComponent from '../../components/ActionComponent';
@@ -10,9 +10,10 @@ import useAxios from '../../Hook/useAxios';
 const ListeTodos = () => {
 
     const navigate = useNavigate()
+    const [todos, setTodos] = useState([]);
 
     const {responseAxios, error, loading, fetchData } = useAxios({
-        url : 'localhost:8000/api/todos',
+        url : 'http://localhost:8080/api/todos',
         method : "GET",
         body : null,
         headers : {
@@ -22,9 +23,18 @@ const ListeTodos = () => {
     }
     )
 
-    // useEffect(() => {
-    //     fetchData()
-    // }, [])
+    useEffect(() => {
+        fetchData()
+    }, [])
+
+    useEffect(() => {
+        if (responseAxios) {
+            console.log(responseAxios)
+          setTodos(responseAxios);
+        //   console.log(produits);
+        }
+      }, [responseAxios]);
+    
 
     const columns = [
         "id",
@@ -107,7 +117,8 @@ const ListeTodos = () => {
                 <IndiquePage className={"mt-3"}>Liste des todos</IndiquePage>
                 <AddButton onClick={goToAddTodo} >Nouveau Todo</AddButton>
             </div>
-            <Table columns = {columns} data = {data} actions={actions}/>
+            { todos && todos.length > 0 && <Table columns = {columns} data = {todos} actions={actions}/>}
+            {/* <Table columns = {columns} data = {todos} actions={actions}/> */}
            
 
            

@@ -24,9 +24,9 @@ function Layout({children}) {
     >
       <Sidebar />
 
-      <div className="flex flex-col flex-1 w-full bg-gray-100">
+      <div className="bg-my_white flex flex-col flex-1 w-full bg-gray-100">
         <Header />
-        <Main >
+        <Main  >
           {children}
         </Main>
       </div>

@@ -14,6 +14,16 @@ import TestUpload from "../auth/TestUpload";
 import Register from "../auth/Register";
 import Landing from "../pages/Landing";
 import Thanks from "../pages/Thanks";
+import RecapAdmin from "../pages/admin/index";
+import ListeRole from "../pages/admin/role/ListeRole";
+import UserModule from "../pages/admin/user/index"
+import RoleModule from "../pages/admin/role/index"
+import ProjetModule from "../pages/projet/index"
+import ActiviteModule from "../pages/activite/index"
+import DepenseModule from "../pages/depense/index"
+import FinanceModule from "../pages/finance/index"
+
+
 
 const Routes = () => {
   const { token } = useAuth();
@@ -67,9 +77,21 @@ const Routes = () => {
             element: <Dashboard />,
         },
         {
-          path: "profile",
-          element: <div>User Profile</div>,
+          path: "admin",
+          element: <><Outlet/></>,
+          children : [
+            {
+              path : "",
+              element : <RecapAdmin/>
+            },
+            ...UserModule,
+            ...RoleModule,
+          ]
         },
+        ...ActiviteModule,
+        ...ProjetModule,
+        ...DepenseModule,
+        ...FinanceModule,
         {
           path: "todos",
           element: <><Outlet/></>,

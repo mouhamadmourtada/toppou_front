@@ -76,6 +76,36 @@ button:focus-visible {
   }
 } */
 
+
+/* Barre de défilement pour les navigateurs Webkit (Chrome, Safari) */
+::-webkit-scrollbar {
+  width: 4px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  @apply bg-gris_clair;
+
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-primaire;
+  border-radius: 15px;
+}
+
+
+::-ms-scrollbar-track {
+    /* background: #f1f1f1; */
+  @apply bg-gris_clair;
+
+}
+
+::-ms-scrollbar-thumb {
+  @apply bg-primaire;
+  border-radius: 6px;
+}
+
 @tailwind base;
   @tailwind components;
   @tailwind utilities;

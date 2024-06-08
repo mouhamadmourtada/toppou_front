@@ -22,35 +22,40 @@ const Login = () => {
 
     const handleLogin = async (event) => {
         event.preventDefault();
-        // setErreur('');
-        // setIsloading(true);
-        // if(!email || !password) {
-        //     setErreur("Veuillez remplir tous les champs");
-        //     return;
-        // }
+        setErreur('');
+        setIsloading(true);
+        if(!email || !password) {
+            setErreur("Veuillez remplir tous les champs");
+            return;
+        }
 
-        // // il faut faire la fetch
-        // const urlLogin = import.meta.env.VITE_API_URL+'/login';
-        // // console.log(urlLogin)
-        // // return;
-        // fetch(urlLogin, {
-        //     method: 'POST',
-        //     headers: {
-        //         'Content-Type': 'application/json',
-        //     },
-        //     body: JSON.stringify({
-        //         email: email,
-        //         password,
-        //     }),
-        // })
-        // .then(response => response.json())
-        // .then(data => {
-        //     if(data.status == 'error') {
-        //         setErreur(data.message);
-        //         return;
-        //     }
+        // il faut faire la fetch
+        const urlLogin = import.meta.env.VITE_API_URL+'/auth/login';
+        // console.log(urlLogin)
+        // return;
+        fetch(urlLogin, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                username: email,
+                password,
+            }),
+        })
+        .then(response => response.json())
+        .then(data => {
+            console.log(data)
+            if(data.status != 200) {
+                setErreur(data.message);
+                return;
+            }
             
-        //     setToken(data.authorisation.token);
+            setToken(data.accessToken);
+            //  je reçois aussi getUser
+            // maintenant au lieu de faire les choses manuellement comme ça est-ce qu'il ya pas un moyen de faire ça automatiquement. c'est-à-dire pour chaque attribut de l'objet user je veux le mettre dans le localstorage
+            // est-ce qu'il y a un moyen de faire une boucle sur les attributs de l'objet user et les mettre dans le localstorage
+            localStorage.setItem('user', JSON.stringify(data.getUser));
         //     localStorage.setItem('id', data.user.id);
         //     localStorage.setItem('nom', data.user.nom);
         //     localStorage.setItem('prenom', data.user.prenom);
@@ -60,19 +65,18 @@ const Login = () => {
         //     localStorage.setItem('date_naissance', data.user.date_naissance);
         //     localStorage.setItem('adresse', data.user.adresse);
         //     localStorage.setItem('lieu_naissance', data.user.lieu_naissance);
+            navigate("/app/", { replace: true });
 
-        //     navigate("/app/", { replace: true });
-
-        // }).catch((error) => {
-        //     console.error('Error:', error);
-        //     setErreur(error.message || "Une erreur s'est produite");
-        //     setErreur("Une erreur s'est produite");
-        // }).finally(() => {
-        //     setIsloading(false);
-        // });
+        }).catch((error) => {
+            console.error('Error:', error);
+            setErreur(error.message || "Une erreur s'est produite");
+            setErreur("Une erreur s'est produite");
+        }).finally(() => {
+            setIsloading(false);
+        });
 
 
-        navigate("/app/", { replace: true });
+        // navigate("/app/", { replace: true });
 
           
     }

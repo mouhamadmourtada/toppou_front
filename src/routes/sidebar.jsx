@@ -12,9 +12,19 @@ const routes = [
     name: 'Dashboard', // name that appear in Sidebar
   },
   {
-    path: '/forms',
-    icon: 'FormsIcon',
-    name: 'Forms',
+    path: '/app/admin',
+    icon: 'OutlineCogIcon',
+    name: 'Administrateur',
+  },
+  {
+    path: '/app/admin/user',
+    icon: 'PeopleIcon',
+    name: 'Gestion des utilisateurs',
+  },
+  {
+    path: '/app/admin/role',
+    icon: 'UserRole',
+    name: 'Gestion des roles',
   },
   {
     path: 'todos',
@@ -22,57 +32,63 @@ const routes = [
     name: 'Todos',
   },
   {
-    path: '/cards',
-    icon: 'CardsIcon',
-    name: 'Cards',
+    path: '/app/projet',
+    icon: 'ServiceIcon',
+    name: 'Projets',
+  },
+  // {
+  //   path: '/charts',
+  //   icon: 'ChartsIcon',
+  //   name: 'Charts',
+  // },
+  {
+    path: '/app/activite',
+    icon: 'InProgressIcon',
+    name: 'Activités',
   },
   {
-    path: '/charts',
-    icon: 'ChartsIcon',
-    name: 'Charts',
+    path: '/app/depense',
+    icon: 'MoneyIcon',
+    name: 'Dépenses',
   },
   {
-    path: '/buttons',
-    icon: 'ButtonsIcon',
-    name: 'Buttons',
+    path: '/app/finance',
+    icon: 'BankIcon',
+    name: 'Finances',
   },
-  {
-    path: '/modals',
-    icon: 'ModalsIcon',
-    name: 'Modals',
-  },
-  {
-    icon: 'PagesIcon',
-    name: 'Pages',
-    routes: [
-      // submenu
-      {
-        path: '/login',
-        name: 'Login',
-      },
-      {
-        path: '/create-account',
-        name: 'Create account',
-      },
-      {
-        path: '/forgot-password',
-        name: 'Forgot password',
-      },
-      {
-        path: '/404',
-        name: '404',
-      },
-      {
-        path: '/blank',
-        name: 'Blank',
-      },
-    ],
-  },
-  {
-    path: '/tables',
-    icon: 'TablesIcon',
-    name: 'Tables',
-  },
+
+  // {
+  //   icon: 'PagesIcon',
+  //   name: 'Pages',
+  //   routes: [
+  //     // submenu
+  //     {
+  //       path: 'dashboard',
+  //       name: 'Login',
+  //     },
+  //     {
+  //       path: '/create-account',
+  //       name: 'Create account',
+  //     },
+  //     {
+  //       path: '/forgot-password',
+  //       name: 'Forgot password',
+  //     },
+  //     {
+  //       path: '/404',
+  //       name: '404',
+  //     },
+  //     {
+  //       path: '/blank',
+  //       name: 'Blank',
+  //     },
+  //   ],
+  // },
+  // {
+  //   path: '/tables',
+  //   icon: 'TablesIcon',
+  //   name: 'Tables',
+  // },
   
 ]
 

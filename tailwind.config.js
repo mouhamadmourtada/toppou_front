@@ -38,7 +38,7 @@ module.exports = {
         "tertiaire" : '#707eae',
         "md_gray" : "#A3AED0",
         "gris_clair" : "#f3f4f6",
-        "my_white" : '#e9edf7',
+        "my_white" : '#f4f7fe',
 
         // "primaire" : '#E9F1FA',
         // "secondaire" : "#00ABE4",

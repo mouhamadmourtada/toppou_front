@@ -4,8 +4,8 @@ import MdIcon from '../components/MdIcon';
 const AddButton = ({children, className, onClick}) => {
     return (
         <div>
-            <button className={`flex justify-center items-center hover:bg-white hover:text-secondaire hover:border-secondaire border-2 bg-secondaire text-white ${className}`} onClick={onClick}>
-                <MdIcon className="w-4 h-4 mx-2" aria-hidden="true" icon={"AddIcon"} />
+            <button className={`flex justify-center items-center hover:bg-primaire_hover  text-sm border-2 bg-primaire text-white px-4 py-1 rounded ${className}`} onClick={onClick}>
+                <MdIcon className="w-4 h-4 mr-2" aria-hidden="true" icon={"AddIcon"} />
                 <span>
                     {children}
                 </span>

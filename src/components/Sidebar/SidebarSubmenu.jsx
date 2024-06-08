@@ -25,12 +25,12 @@ function SidebarSubmenu({ route }) {
   }
 
   return (
-    <li className="relative py-1 my-1 px-3" key={route.name}>
-          {/* <Icon className="w-5 h-5" aria-hidden="true" icon={route.icon} /> */}
+    <li className="relative py-1 my-1 px-3 hover:bg-gris_clair " key={route.name}>
       
-      <Accordion type="single" collapsible className="w-full pl-5">
+      <Accordion type="single" collapsible className="w-full pl-5 ">
           <AccordionItem value="item-1">
-              <AccordionTrigger>
+              <AccordionTrigger className = "text-tertiaire hover:no-underline 
+              border-b-2 border-gray-200">
               <span className="inline-flex items-center">
                 <Icon className="w-5 h-5" aria-hidden="true" icon={route.icon} />
                 <span className="ml-4">{route.name}</span>
@@ -38,12 +38,12 @@ function SidebarSubmenu({ route }) {
               </AccordionTrigger>
               <AccordionContent>
               <ul
-                className="bg-gray-100 border border-gray-200 border-1 space-y-2 overflow-hidden text-sm font-medium text-gray-500 shadow-xl bg-gray-200 "
+                className="border-2 border-gris_clair overflow-hidden text-sm font-medium text-gray-500 shadow"
                 aria-label="submenu"
               >
                 {route.routes.map((r) => (
                   <li
-                    className="px-2 relative  transition-colors duration-150 hover:text-gray-800 "
+                    className="relative"
                     key={r.name}
                   >
                   
@@ -51,9 +51,12 @@ function SidebarSubmenu({ route }) {
                       exact
                       to={r.path}
                       
-                      className={({ isActive }) => 
-                        isActive ? "py-2  rounded px-5 inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 bg-secondaire text-white hover:text-white" : "py-2  rounded px-5 inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 text-primaire"
-                      }                
+                      className={({ isActive }) => {
+                        const baseClasses = "font-bold rounded-lg w-full py-2 px-5 inline-flex items-center text-sm font-semibold transition-colors duration-150 ";
+                        const activeClasses = "text-white bg-primaire border-r-4 border-r-primaire";
+                        const inactiveClasses = "hover:bg-white text-tertiaire";
+                        return `${baseClasses} ${isActive ? activeClasses : inactiveClasses}`;
+                      }}                     
                     >
                     
                       {/* <Icon className="w-5 h-5" aria-hidden="true" icon={route.icon} /> */}
@@ -65,56 +68,6 @@ function SidebarSubmenu({ route }) {
               </AccordionContent>
           </AccordionItem>
       </Accordion>
-     
-      {/* <button
-      
-        className="pl-5 inline-flex items-center justify-between w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 text-primaire"
-        
-        onClick={handleDropdownMenuClick}
-        aria-haspopup="true"
-      >
-        <span className="inline-flex items-center">
-          <Icon className="w-5 h-5" aria-hidden="true" icon={route.icon} />
-          <span className="ml-4">{route.name}</span>
-        </span>
-        <DropdownIcon className="w-4 h-4" aria-hidden="true" />
-      </button> */}
-
-      <Transition
-        show={isDropdownMenuOpen}
-        enter="transition-all ease-in-out duration-300"
-        enterFrom="opacity-25 max-h-0"
-        enterTo="opacity-100 max-h-xl"
-        leave="transition-all ease-in-out duration-300"
-        leaveFrom="opacity-100 max-h-xl"
-        leaveTo="opacity-0 max-h-0"
-      >
-        <ul
-          className="p-2 bg-gray-100 mt-1 border border-gray-200 border-1 mx-2 space-y-2 overflow-hidden text-sm font-medium text-gray-500 rounded-md shadow-xl bg-gray-200 "
-          aria-label="submenu"
-        >
-          {route.routes.map((r) => (
-            <li
-              className="px-2 relative  transition-colors duration-150 hover:text-gray-800 "
-              key={r.name}
-            >
-             
-              <NavLink
-                exact
-                to={r.path}
-                
-                className={({ isActive }) => 
-                  isActive ? "py-2  rounded px-5 inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 bg-secondaire text-white hover:text-white" : "py-2  rounded px-5 inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 text-primaire"
-                }                
-              >
-               
-                {/* <Icon className="w-5 h-5" aria-hidden="true" icon={route.icon} /> */}
-                <span className="ml-4">{r.name}</span>
-              </NavLink>
-            </li>
-          ))}
-        </ul>
-      </Transition>
     </li>
   )
 }

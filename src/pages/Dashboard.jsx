@@ -1,28 +1,23 @@
 import React from "react";
 import { useAuth } from "../provider/authProvider";
 import Layout from "../layout/Layout"
-import { Button } from "@/components/ui/button"
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuGroup,
-  DropdownMenuItem,
-  DropdownMenuLabel,
-  DropdownMenuPortal,
-  DropdownMenuSeparator,
-  DropdownMenuShortcut,
-  DropdownMenuSub,
-  DropdownMenuSubContent,
-  DropdownMenuSubTrigger,
-  DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu"
+import {Link} from "react-router-dom"
+// il faut importer le localstorage service
+import StorageService from "../services/StorageService"
 
+// import { SlashIcon } from "@radix-ui/react-icons"
+ 
 import {
-    Accordion,
-    AccordionContent,
-    AccordionItem,
-    AccordionTrigger,
-  } from "@/components/ui/accordion"
+  Breadcrumb,
+  BreadcrumbItem,
+  BreadcrumbLink,
+  BreadcrumbList,
+  BreadcrumbPage,
+  BreadcrumbSeparator,
+} from "@/components/ui/breadcrumb"
+
+
+
 
 
 
@@ -33,84 +28,54 @@ const Dashboard = () => {
     const handleLogout = () => {
         setToken(null);
     };
+
+
+    const userFromLocalStorage = StorageService.getUser();
+
     return (
-        // il faut mettre des bordure rouge très claire
-        <div>
+        <div className="bg-my_white h-full">
+
+            <Breadcrumb>
+                <BreadcrumbList>
+                    <BreadcrumbItem>
+                        <BreadcrumbLink className="text-tertiaire"  href="/">Home</BreadcrumbLink>
+                    </BreadcrumbItem>
+                    <BreadcrumbSeparator>
+                    {/* <SlashIcon /> */}
+                    /
+                    </BreadcrumbSeparator>
+                    <BreadcrumbItem>
+                        <BreadcrumbLink >
+                            <Link to = "app/todo" >Component</Link>
+                        </BreadcrumbLink>
+                    </BreadcrumbItem>
+                    <BreadcrumbSeparator>
+                    {/* <SlashIcon /> */}
+                    /
+                    </BreadcrumbSeparator>
+                    <BreadcrumbItem>
+                        <BreadcrumbPage className="text-primaire font-bold" >Breadcrumb</BreadcrumbPage>
+                    </BreadcrumbItem>
+                </BreadcrumbList>
+            </Breadcrumb>
+
+
             <h1>Dashboard</h1>
             <button className="btn bg-gray-300 px-4 py-2 rounded m-3 " onClick={handleLogout}>
                 Se déconnecter
             </button>
 
-            <Button className="bg-gray-500">Button</Button>
-
-
-            <DropdownMenu >
-                <DropdownMenuTrigger asChild>
-                    <Button variant="outline" >Open</Button>
-                </DropdownMenuTrigger>
-                <DropdownMenuContent className="w-56">
-                    <DropdownMenuLabel>My Account</DropdownMenuLabel>
-                    <DropdownMenuSeparator />
-                    <DropdownMenuGroup>
-                    <DropdownMenuItem>
-                        Profile
-                        <DropdownMenuShortcut>⇧⌘P</DropdownMenuShortcut>
-                    </DropdownMenuItem>
-                    <DropdownMenuItem>
-                        Billing
-                        <DropdownMenuShortcut>⌘B</DropdownMenuShortcut>
-                    </DropdownMenuItem>
-                    <DropdownMenuItem>
-                        Settings
-                        <DropdownMenuShortcut>⌘S</DropdownMenuShortcut>
-                    </DropdownMenuItem>
-                    <DropdownMenuItem>
-                        Keyboard shortcuts
-                        <DropdownMenuShortcut>⌘K</DropdownMenuShortcut>
-                    </DropdownMenuItem>
-                    </DropdownMenuGroup>
-                    <DropdownMenuSeparator />
-                    <DropdownMenuGroup>
-                    <DropdownMenuItem>Team</DropdownMenuItem>
-                    <DropdownMenuSub>
-                        <DropdownMenuSubTrigger>Invite users</DropdownMenuSubTrigger>
-                        <DropdownMenuPortal>
-                        <DropdownMenuSubContent>
-                            <DropdownMenuItem>Email</DropdownMenuItem>
-                            <DropdownMenuItem>Message</DropdownMenuItem>
-                            <DropdownMenuSeparator />
-                            <DropdownMenuItem>More...</DropdownMenuItem>
-                        </DropdownMenuSubContent>
-                        </DropdownMenuPortal>
-                    </DropdownMenuSub>
-                    <DropdownMenuItem>
-                        New Team
-                        <DropdownMenuShortcut>⌘+T</DropdownMenuShortcut>
-                    </DropdownMenuItem>
-                    </DropdownMenuGroup>
-                    <DropdownMenuSeparator />
-                    <DropdownMenuItem>GitHub</DropdownMenuItem>
-                    <DropdownMenuItem>Support</DropdownMenuItem>
-                    <DropdownMenuItem disabled>API</DropdownMenuItem>
-                    <DropdownMenuSeparator />
-                    <DropdownMenuItem>
-                    Log out
-                    <DropdownMenuShortcut>⇧⌘Q</DropdownMenuShortcut>
-                    </DropdownMenuItem>
-                </DropdownMenuContent>
-            </DropdownMenu>
-
-            <div style = {{width : "200px"}} className="bg-white px-2">
-            <Accordion type="single" collapsible className="w-full">
-                <AccordionItem value="item-1">
-                    <AccordionTrigger>Is it accessible?</AccordionTrigger>
-                    <AccordionContent>
-                    Yes. It adheres to the WAI-ARIA design pattern.
-                    </AccordionContent>
-                </AccordionItem>
-            </Accordion>
+            <div>
+                {userFromLocalStorage && (
+                     <div>
+                            <h2>Utilisateur</h2>
+                            <p>{userFromLocalStorage.email}</p>
+                      </div>
+                 )    
+                }
             </div>
 
+           
             
            
         </div>
