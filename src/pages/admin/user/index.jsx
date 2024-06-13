@@ -22,7 +22,7 @@ export default [
         element: <Edit/>,
       },
       {
-        path: "show",
+        path: "show/:userId",
         element: <Show/>,
       }
     ]
