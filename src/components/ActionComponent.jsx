@@ -16,6 +16,8 @@ const ActionComponent = ({actions}) => {
                             return <ActionView onClick={()=> act.function(1)}/>
                         case "delete":
                             return <ActionDelete onClick={()=> act.function(1)}/>
+                         case "toggle":
+                                return <ActionToggle onClick={()=> act.function(1)} />
                     
                     }
                     // return <ActionView handleClick={act.function}/>
@@ -61,3 +63,14 @@ const ActionDelete = ({onClick}) => {
         </div>
     )
 }
+
+const ActionToggle = ({ onClick }) => {
+    return (
+        <div className="text-secondaire cursor-pointer" onClick={onClick}>
+            <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" width="13" height="13" viewBox="0 0 15 15" fill="none">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+            </svg>
+        </div>
+    );
+}
+
