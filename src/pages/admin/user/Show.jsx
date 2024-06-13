@@ -1,4 +1,7 @@
 import React from 'react';
+import { IoLogoLinkedin } from "react-icons/io5";
+import { CiGlobe } from "react-icons/ci";
+import { FaSquareXTwitter } from "react-icons/fa6";
 
 const Show = () => {
     return (
@@ -26,15 +29,15 @@ const Show = () => {
                 
                 <div className='bg-white rounded-lg p-5 shadow-md'>
                     <div>
-                        <h3 className='text-primaire pt-3'>Website</h3>
+                        <span className='text-primaire flex items-center'><CiGlobe/><a href='#' className='ml-1'>Site Web</a></span>
                         <hr/>
                     </div>
                     <div>
-                        <h3 className='text-primaire pt-3'>Linkdin</h3>
+                        <h3 className='text-primaire pt-3 flex items-center'><IoLogoLinkedin/><a href='#' className='ml-1'>Linkdin</a></h3>
                         <hr/>
                     </div>
                     <div>
-                        <h3 className='text-primaire pt-3'>Twitter</h3>
+                        <h3 className='text-primaire pt-3 flex items-center'><FaSquareXTwitter/><a href='#' className='ml-1'>Twitter</a></h3>
                         <hr/>
                     </div>
                 </div>
