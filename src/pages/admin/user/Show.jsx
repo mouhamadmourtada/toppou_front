@@ -93,7 +93,10 @@ const Show = () => {
             user && (
 
                 <div className="px-12 py-4 flex justify-between">
+                    {/* gauche  */}
                     <div className=' w-1/4 mr-5'>
+
+                        {/* haut */}
                         <div className="bg-white p-5 rounded-lg mb-5 shadow-md">
                             <div className="flex items-center justify-center">
                                 <div className="flex flex-col items-center justify-center space-x-4">
@@ -117,7 +120,9 @@ const Show = () => {
                                 </div>
                             </div>
                         </div>
-                        
+
+
+                        {/* bas */}
                         <div className='bg-white rounded-lg p-5 shadow-md'>
                             <div>
                                 <span className='text-primaire flex items-center'><CiGlobe/><a href='#' className='ml-1'>Site Web</a></span>
@@ -133,6 +138,7 @@ const Show = () => {
                             </div>
                         </div>
                     </div>
+                    {/* droite */}
                     <div className='w-3/4 flex flex-col'>
                         <div className=" gap-4 mb-5">
                             <div className="bg-white rounded-lg shadow-md p-4">
@@ -191,9 +197,25 @@ const Show = () => {
                             </div>
 
                         </div>
-                        {/* <div className='h-full bg-white rounded-lg shadow-md'>
-                            <p className='text-center mt-10 text-tertiaire'>On peut mettre d'autres informations ici</p>
-                        </div> */}
+                        <div className='h-full bg-white rounded-lg shadow-md p-5'>
+                            
+                            <div className='flex items-center align-items-center '>
+                                <span className='text-primaire font-bold'>Roles : </span>
+                                <ul className='flex'>
+                                    <li className='mx-3 py-1 px-2 bg-gray-200 rounded cursor-pointer hover:bg-gray-100 '>Chercheur</li>
+                                    <li className='mx-3 py-1 px-2 bg-gray-200 rounded cursor-pointer hover:bg-gray-100 '>bailleur</li>
+                                    <li className='mx-3 py-1 px-2 bg-gray-200 rounded cursor-pointer hover:bg-gray-100 '>admin</li>
+                                </ul>
+                            </div>
+                        {/* </div> */}
+{/* 
+                            Role : 
+                            Chercheur
+                            Admin
+                            Bailleur  */}
+
+                            {/* <p className='text-center mt-10 text-tertiaire'>On peut mettre d'autres informations ici</p> */}
+                        </div>
                     </div>
                     
                 </div>
