@@ -7,6 +7,16 @@ import { MdAttachEmail, MdDateRange } from "react-icons/md";
 import { useParams } from 'react-router-dom';
 
 import useAxios from '../../../Hook/useAxios';
+import { Link } from 'react-router-dom';
+
+import {
+    Breadcrumb,
+    BreadcrumbItem,
+    BreadcrumbLink,
+    BreadcrumbList,
+    BreadcrumbPage,
+    BreadcrumbSeparator,
+  } from "@/components/ui/breadcrumb"
 
 const Show = () => {
 
@@ -47,6 +57,38 @@ const Show = () => {
     
     return (
         <div>
+            {/* breadcrumb */}
+            <div className='my-3 font-semibold'>
+                <Breadcrumb>
+                    <BreadcrumbList>
+                        <BreadcrumbItem>
+                        <BreadcrumbLink>
+                            <Link className='text-tertiaire' to="/app/dashboard">Home</Link>
+                        </BreadcrumbLink>
+                        </BreadcrumbItem>
+
+                        <BreadcrumbSeparator />
+                        <BreadcrumbItem>
+                        <BreadcrumbLink>
+                            <Link className='text-tertiaire' to="/app/admin">Admin</Link>
+                        </BreadcrumbLink>
+                        </BreadcrumbItem>
+
+                        <BreadcrumbSeparator />
+                        <BreadcrumbItem>
+                        <BreadcrumbLink>
+                            <Link className='text-tertiaire' to="/app/admin/user">users</Link>
+                        </BreadcrumbLink>
+                        </BreadcrumbItem>
+                       
+                        <BreadcrumbSeparator />
+                        <BreadcrumbItem>
+                        <BreadcrumbPage className="text-primaire font-semibold">Detail {user.prenom }</BreadcrumbPage>
+                        </BreadcrumbItem>
+                    </BreadcrumbList>
+                </Breadcrumb>
+
+            </div>
         {   
             user && (
 

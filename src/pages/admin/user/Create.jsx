@@ -159,7 +159,7 @@ const Create = () => {
                 </div>
             )}
 
-<div className='my-3 font-semibold'>
+            <div className='my-3 font-semibold'>
                 <Breadcrumb>
                     <BreadcrumbList>
                         <BreadcrumbItem>
@@ -237,13 +237,13 @@ const Create = () => {
                             
                             {/* nom */}
                             <div className='mb-8 inputContainer min-w-64 '>
-                                <label htmlFor="nom" class="block text-sm font-medium text-tertiaire text-primaire mb-0">Nom <IndiqueReduired></IndiqueReduired> </label>
+                                <label htmlFor="nom" className="block text-sm font-medium text-tertiaire text-primaire mb-0">Nom <IndiqueReduired></IndiqueReduired> </label>
                                 <input className='w-full px-4 py-2 rounded-lg mt-2 border focus:border-primaire border-2 focus:bg-white focus:outline-none'    type="text" id="nom" placeholder="Nom de l'utilisateur" />
                             </div>
 
                             {/* prenom */}
                             <div className='mb-8 inputContainer min-w-64 '>
-                                <label htmlFor="prenom" class="block text-sm font-medium text-tertiaire text-primaire mb-0">prenom <IndiqueReduired></IndiqueReduired> </label>
+                                <label htmlFor="prenom" className="block text-sm font-medium text-tertiaire text-primaire mb-0">prenom <IndiqueReduired></IndiqueReduired> </label>
                                 <input className='w-full px-4 py-2 rounded-lg mt-2 border focus:border-primaire border-2 focus:bg-white focus:outline-none'    type="text" id="prenom" placeholder="prenom de l'utilisateur" />
                             </div>
 
