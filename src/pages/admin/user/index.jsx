@@ -18,11 +18,11 @@ export default [
         element: <Create/>,
       },
       {
-        path: "edit/",
+        path: "edit/:userId",
         element: <Edit/>,
       },
       {
-        path: "show",
+        path: "show/:userId",
         element: <Show/>,
       }
     ]

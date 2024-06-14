@@ -6,6 +6,7 @@ import StorageService from '../services/StorageService';
 
 axios.defaults.baseURL = 'https://jsonplaceholder.typicode.com';
 
+
 const useAxios = ({ url, method, headers = null }) => {
     const [responseAxios, setResponseAxios] = useState(null);
     const [error, setError] = useState('');
@@ -39,13 +40,17 @@ const useAxios = ({ url, method, headers = null }) => {
             method: method,
             url: url,
             data: body,
-            headers: headers
+            headers: { ...headers, 'Content-Type': 'application/json' }
         })
             .then((res) => {
                 setResponseAxios(res.data);
             })
             .catch((err) => {
-                setError(err.message || 'An error occurred');
+                console.log(err)
+                if(err.response)
+                    setError(err.response.data || 'An error occurred');
+                else
+                    setError(err.message || 'An error occurred');
             })
             .finally(() => {
                 setLoading(false);
