@@ -34,6 +34,7 @@ module.exports = {
 
         "secondaire" : "#03ea68",
         "secondaire_hover" : "#47e58b",
+        'placeholder_color' : "#A3AED0",
 
         "tertiaire" : '#707eae',
         "md_gray" : "#A3AED0",
@@ -99,6 +100,16 @@ module.exports = {
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
+      },
+
+      animation: {
+        spin360: 'spin360 2s linear infinite',
+      },
+      keyframes: {
+        spin360: {
+          '0%': { transform: 'rotate(0deg)' },
+          '100%': { transform: 'rotate(360deg)' },
+        },
       },
 
      
