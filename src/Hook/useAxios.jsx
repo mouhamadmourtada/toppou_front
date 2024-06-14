@@ -6,6 +6,7 @@ import StorageService from '../services/StorageService';
 
 axios.defaults.baseURL = 'http://localhost:8080';
 
+
 const useAxios = ({ url, method, headers = null }) => {
     const [responseAxios, setResponseAxios] = useState(null);
     const [error, setError] = useState('');
@@ -41,12 +42,17 @@ const useAxios = ({ url, method, headers = null }) => {
             data: body,
             headers:headers
         
+
         })
             .then((res) => {
                 setResponseAxios(res.data);
             })
             .catch((err) => {
-                setError(err.message || 'An error occurred');
+                console.log(err)
+                if(err.response)
+                    setError(err.response.data || 'An error occurred');
+                else
+                    setError(err.message || 'An error occurred');
             })
             .finally(() => {
                 setLoading(false);
