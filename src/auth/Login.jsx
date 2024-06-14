@@ -30,7 +30,7 @@ const Login = () => {
         }
 
         // il faut faire la fetch
-        const urlLogin = import.meta.env.VITE_API_URL+'/auth/login';
+        const urlLogin = import.meta.env.VITE_API_URL+'api/auth/login';
         // console.log(urlLogin)
         // return;
         fetch(urlLogin, {

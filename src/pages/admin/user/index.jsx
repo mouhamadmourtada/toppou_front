@@ -18,7 +18,7 @@ export default [
         element: <Create/>,
       },
       {
-        path: "edit/",
+        path: "edit/:userId",
         element: <Edit/>,
       },
       {
