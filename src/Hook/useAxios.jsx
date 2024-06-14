@@ -4,7 +4,8 @@ import StorageService from '../services/StorageService';
 
 // import { set } from 'react-hook-form';
 
-axios.defaults.baseURL = 'https://jsonplaceholder.typicode.com';
+axios.defaults.baseURL = 'http://localhost:8080';
+
 
 const useAxios = ({ url, method, headers = null }) => {
     const [responseAxios, setResponseAxios] = useState(null);
@@ -33,19 +34,25 @@ const useAxios = ({ url, method, headers = null }) => {
     }, []);
     
 
-    const  fetchData = async (body = null) => {
+    const fetchData = async (body = null) => {
         setLoading(true);
         axios({
             method: method,
             url: url,
             data: body,
-            headers: headers
+            headers:headers
+        
+
         })
             .then((res) => {
                 setResponseAxios(res.data);
             })
             .catch((err) => {
-                setError(err.message || 'An error occurred');
+                console.log(err)
+                if(err.response)
+                    setError(err.response.data || 'An error occurred');
+                else
+                    setError(err.message || 'An error occurred');
             })
             .finally(() => {
                 setLoading(false);
@@ -53,7 +60,9 @@ const useAxios = ({ url, method, headers = null }) => {
     };
 
     useEffect(() => {
-        // fetchData();
+        if(method && url){
+            // fetchData();
+        }
     }, [method, url, headers]);
 
     return { responseAxios, error, loading, fetchData };

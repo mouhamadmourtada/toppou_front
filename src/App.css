@@ -66,6 +66,16 @@
     }
   }
 
+.inputContainer {
+  /* @apply min-w-800px; */
+}
+
+
+.mdInput{
+  /* w-full rounded-md border border-primaire bg-white py-3 px-6 text-base font-medium text-gray-800 outline-none focus:border-jay-secondaire focus:shadow-md */
+  @apply w-full mt-1 max-w-96 min-w-48 m-4 rounded-md border border-primaire bg-white py-2 px-5 text-gray-800 outline-none focus:border-jay-secondaire focus:shadow-md
+}
+
   @layer base {
     * {
       @apply border-border;
