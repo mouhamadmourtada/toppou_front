@@ -19,6 +19,7 @@
     "@radix-ui/react-avatar": "^1.0.4",
     "@radix-ui/react-dropdown-menu": "^2.0.6",
     "@radix-ui/react-slot": "^1.0.2",
+    "@radix-ui/react-switch": "^1.0.3",
     "@windmill/react-ui": "^0.6.0",
     "antd": "^5.17.0",
     "axios": "^1.6.8",
