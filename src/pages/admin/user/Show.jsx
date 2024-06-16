@@ -26,6 +26,7 @@ import {
 
 const Show = () => {
 
+    const apiUrl = import.meta.env.VITE_API_URL;
 
     
     const [user, setUser] = useState({
@@ -35,8 +36,8 @@ const Show = () => {
     // il faut recupérer le userId passé en paramètre
     const {userId} = useParams();
     
-    const url = `http://localhost:8080/users/${userId}`
-    const url1 = `http://localhost:8080/users/toggleActif?id=${userId}`
+    const url = `${apiUrl}users/${userId}`
+    const url1 = `${apiUrl}users/toggleActif?id=${userId}`
     
     const {responseAxios, error, loading, fetchData} = useAxios({
         url : url,

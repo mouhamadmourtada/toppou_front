@@ -6,8 +6,10 @@ import useAxios from '../../Hook/useAxios';
 
 const ListeFinance = () => {
     const navigate = useNavigate();
+    const apiUrl = import.meta.env.VITE_API_URL;
 
-    const urlListe = "http://localhost:8080/financements"; // API endpoint for finances
+
+    const urlListe = `${apiUrl}financements`; // API endpoint for finances
 
     const [finances, setFinances] = useState([]);
 

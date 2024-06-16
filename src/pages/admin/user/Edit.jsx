@@ -65,7 +65,7 @@ const Edit = () => {
     // console.log(userId)
 
     const { responseAxios: responseUpdate, error: errorUpdate, loading: loadingUpdate, fetchData: updateUser } = useAxios({
-        url: `http://localhost:8080/users/${userId}`,
+        url: `${apiUrl}users/${userId}`,
         method: "PATCH",
         body: null,
         headers: {

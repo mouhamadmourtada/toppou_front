@@ -6,7 +6,10 @@ import useAxios from '../../../Hook/useAxios';
 const ListeRole = () => {
     const navigate = useNavigate();
 
-    const urlListe = "http://localhost:8080/roles"; // API endpoint for roles
+    const apiUrl = import.meta.env.VITE_API_URL;
+
+
+    const urlListe = `${apiUrl}roles`; // API endpoint for roles
 
     const [roles, setRoles] = useState([]);
 
