@@ -7,7 +7,9 @@ import useAxios from '../../Hook/useAxios';
 const ListeProjet = () => {
     const navigate = useNavigate();
 
-    const urlListe = "http://localhost:8080/projets"; // API endpoint for projects
+    const apiUrl = import.meta.env.VITE_API_URL;
+
+    const urlListe = `${apiUrl}projets`; // API endpoint for projects
 
     const [projects, setProjects] = useState([]);
 

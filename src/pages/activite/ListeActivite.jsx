@@ -5,8 +5,11 @@ import useAxios from '../../Hook/useAxios';
 
 const ListeActivite = () => {
     const navigate = useNavigate();
+    
+    const apiUrl = import.meta.env.VITE_API_URL;
 
-    const urlListe = "http://localhost:8080/activites"; // API endpoint for activities
+
+    const urlListe = `${apiUrl}activites`; // API endpoint for activities
 
     const [activities, setActivities] = useState([]);
 
