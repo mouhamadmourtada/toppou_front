@@ -95,7 +95,7 @@ const Create = () => {
 
                         <BreadcrumbSeparator />
                         <BreadcrumbItem>
-                        <BreadcrumbPage className="text-primaire font-semibold">Nouvel</BreadcrumbPage>
+                        <BreadcrumbPage className="text-primaire font-semibold">Nouveau</BreadcrumbPage>
                         </BreadcrumbItem>
                     </BreadcrumbList>
                 </Breadcrumb>
@@ -112,7 +112,7 @@ const Create = () => {
                 <div class="w-full lg:w-1/2 flex flex-col justify-center align-items-center pt-0 lg:w-2/3 lg:px-8  xl:px-10 ">
                     <form onSubmit={handleSubmit} className='w-full max-w-96 border-2 rounded-lg border-gray-100 shadow px-5 py-10 mx-auto'>
                         <div className="">
-                            <div class="flex-1 px-2 ">
+                            <div class="flex-1 ">
                                 <label className="block text-sm font-medium text-tertiaire text-primaire mb-0">Libellé</label>
                                 <input 
                                     type="text"
@@ -126,7 +126,7 @@ const Create = () => {
 
                         </div>
 
-                        <div className="mt-12 w-full ">
+                        <div className="mt-8 w-full ">
                             <label className="block text-sm font-medium text-tertiaire text-primaire mb-0 ">Description</label>
                             <textarea 
                                 className="w-full px-4 py-2 rounded-lg mt-2 border focus:border-primaire border-2 focus:bg-white focus:outline-none" 
@@ -139,11 +139,10 @@ const Create = () => {
                         </div>
                         <div className='mt-16 flex justify-center'>
                             <button 
-                                className="max-w-[200px] w-full transform rounded flex items-center  justify-center  bg-primaire hover:bg-primaire_hover   px-3 py-2 text-sm font-medium capitalize text-white  text-bold  transition-colors duration-300 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-50"
+                                className="w-full transform rounded flex items-center  justify-center  bg-primaire hover:bg-primaire_hover   px-3 py-3 text-sm font-medium capitalize text-white  text-bold  transition-colors duration-300 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-50"
                                 type="submit"
                                 disabled={loading}
                                 >
-
                                     <span className='mr-4'>
                                         Ajouter
                                     </span>
