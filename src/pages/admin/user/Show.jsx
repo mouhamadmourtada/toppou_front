@@ -4,9 +4,14 @@ import { CiGlobe } from "react-icons/ci";
 import { FaSquareXTwitter } from "react-icons/fa6";
 import { FaUser, FaPhoneAlt, FaAddressCard, FaStar, FaGraduationCap } from "react-icons/fa";
 import { MdAttachEmail, MdDateRange } from "react-icons/md";
+import { GrStatusInfo } from "react-icons/gr";
+import { RiAccountPinBoxFill } from "react-icons/ri";
 import { useParams } from 'react-router-dom';
 
 import useAxios from '../../../Hook/useAxios';
+
+import { Switch } from "@/components/ui/switch"
+
 import { Link } from 'react-router-dom';
 
 import {
@@ -18,8 +23,10 @@ import {
     BreadcrumbSeparator,
   } from "@/components/ui/breadcrumb"
 
+
 const Show = () => {
 
+    const apiUrl = import.meta.env.VITE_API_URL;
 
     
     const [user, setUser] = useState({
@@ -29,7 +36,8 @@ const Show = () => {
     // il faut recupérer le userId passé en paramètre
     const {userId} = useParams();
     
-    const url = `http://localhost:8080/users/${userId}`
+    const url = `${apiUrl}users/${userId}`
+    const url1 = `${apiUrl}users/toggleActif?id=${userId}`
     
     const {responseAxios, error, loading, fetchData} = useAxios({
         url : url,
@@ -40,6 +48,14 @@ const Show = () => {
         }
     });
 
+    const {responseAxios:res, error: err, loading: load, fetchData: call} = useAxios({
+        url: url1,
+        method: 'PATCH',
+        body: null,
+        headers: {
+            'Content-Type': 'application/json',
+        }
+    })
 
     useEffect(() => {
         fetchData()
@@ -55,6 +71,13 @@ const Show = () => {
     , [responseAxios])
 
     
+    const toggleAccount = (e) => {
+        // e.preventDefault()
+        call();
+        setUser(res);
+    }
+
+
     return (
         <div>
             {/* breadcrumb */}
@@ -93,7 +116,10 @@ const Show = () => {
             user && (
 
                 <div className="px-12 py-4 flex justify-between">
+                    {/* gauche  */}
                     <div className=' w-1/4 mr-5'>
+
+                        {/* haut */}
                         <div className="bg-white p-5 rounded-lg mb-5 shadow-md">
                             <div className="flex items-center justify-center">
                                 <div className="flex flex-col items-center justify-center space-x-4">
@@ -112,12 +138,15 @@ const Show = () => {
                             </div>
                             <div className="mt-4 flex items-center justify-center">
                                 <div className=''>
-                                    <button className='bg-primaire text-white px-5 py-2 rounded-3xl mr-5 hover:bg-sky-950 hover:outline hover:outline-1'>Valider</button>
+                                    <button className='bg-primaire text-white px-5 py-2 rounded-3xl mr-2 hover:bg-sky-950 hover:outline hover:outline-1'>Valider</button>
                                     <button className='bg-white text-primaire outline outline-1 px-4 py-2 rounded-3xl hover:bg-slate-50'>Contacter</button>
+
                                 </div>
                             </div>
                         </div>
-                        
+
+
+                        {/* bas */}
                         <div className='bg-white rounded-lg p-5 shadow-md'>
                             <div>
                                 <span className='text-primaire flex items-center'><CiGlobe/><a href='#' className='ml-1'>Site Web</a></span>
@@ -133,10 +162,11 @@ const Show = () => {
                             </div>
                         </div>
                     </div>
+                    {/* droite */}
                     <div className='w-3/4 flex flex-col'>
                         <div className=" gap-4 mb-5">
                             <div className="bg-white rounded-lg shadow-md p-4">
-                                <table className='table-auto w-3/4'>
+                                <table className='table-auto w-full'>
                                     <tbody>
                                         <tr className=' border-b border-gray-100'>
                                             <td className='font-medium p-2 text-primaire flex items-center'><FaUser className='mr-2'/>Username :</td>
@@ -169,21 +199,24 @@ const Show = () => {
                                         </tr>
                                         {/* status */}
                                         <tr className=' border-b border-gray-100'>
-                                            <td className='font-medium p-2 text-primaire flex items-center'><MdDateRange className='mr-2'/>Status :</td>
+                                            <td className='font-medium p-2 text-primaire flex items-center'><GrStatusInfo className='mr-2'/>Status :</td>
                                             <td className='font-light text-tertiaire'>{user.status}</td>
                                         </tr>
 
-                                        {/* deleted */}
+                                        {/* actif */}
                                         <tr className=' border-b border-gray-100'>
-                                            <td className='font-medium p-2 text-primaire flex items-center'><MdDateRange className='mr-2'/>Etat compte :</td>
+                                            <td className='font-medium p-2 text-primaire flex items-center'>
+                                                <RiAccountPinBoxFill className='mr-2'/>Etat compte :
+                                            </td>
                                             <td className='font-light text-tertiaire'>
-                                            {user.deleted ? (
-                                                <span className='text-red-700 font-semibold text-sm bg-red-200 px-3 py-1 rounded-3xl'>Supprimé</span>
-                                            ) : (
-                                                <span className='text-green-700 text-sm bg-green-200 py-1 px-3 rounded-3xl font-semibold'>Actif</span>
-                                            
-                                            )}
-                                            
+                                                <div className='flex items-center space-x-2 justify-between'>
+                                                    {user.actif ? (
+                                                        <span className='text-green-700 text-sm bg-green-200 py-1 px-3 rounded-3xl font-semibold'>Actif</span>
+                                                    ) : (
+                                                        <span className='text-red-700 font-semibold text-sm bg-red-200 px-3 py-1 rounded-3xl'>Inactif</span>              
+                                                    )}
+                                                    <Switch checked={user.actif} onClick = {toggleAccount} />
+                                                </div>
                                             </td>
                                         </tr>
                                     </tbody>
@@ -191,9 +224,31 @@ const Show = () => {
                             </div>
 
                         </div>
-                        {/* <div className='h-full bg-white rounded-lg shadow-md'>
-                            <p className='text-center mt-10 text-tertiaire'>On peut mettre d'autres informations ici</p>
+
+                        {/* <div className='flex justify-end'>
+                            <Switch checked={user.actif} onClick = {toggleAccount} />
                         </div> */}
+
+                        <div className='h-full bg-white rounded-lg shadow-md p-5'>
+                            
+                            <div className='flex items-center align-items-center '>
+                                <span className='text-primaire font-bold'>Roles : </span>
+                                <ul className='flex'>
+                                    <li className='mx-3 py-1 px-2 bg-gray-200 rounded cursor-pointer hover:bg-gray-100 '>Chercheur</li>
+                                    <li className='mx-3 py-1 px-2 bg-gray-200 rounded cursor-pointer hover:bg-gray-100 '>bailleur</li>
+                                    <li className='mx-3 py-1 px-2 bg-gray-200 rounded cursor-pointer hover:bg-gray-100 '>admin</li>
+                                </ul>
+                            </div>
+                        {/* </div> */}
+{/* 
+                            Role : 
+                            Chercheur
+                            Admin
+                            Bailleur  */}
+
+                            {/* <p className='text-center mt-10 text-tertiaire'>On peut mettre d'autres informations ici</p> */}
+                        </div>
+
                     </div>
                     
                 </div>

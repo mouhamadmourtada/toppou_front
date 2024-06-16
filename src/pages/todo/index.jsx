@@ -11,9 +11,11 @@ const ListeTodos = () => {
 
     const navigate = useNavigate()
     const [todos, setTodos] = useState([]);
+    const apiUrl = import.meta.env.VITE_API_URL;
+
 
     const {responseAxios, error, loading, fetchData } = useAxios({
-        url : 'http://localhost:8080/api/todos',
+        url : `${apiUrl}api/todos`,
         method : "GET",
         body : null,
         headers : {
