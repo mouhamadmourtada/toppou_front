@@ -22,6 +22,7 @@ import ProjetModule from "../pages/projet/index"
 import ActiviteModule from "../pages/activite/index"
 import DepenseModule from "../pages/depense/index"
 import FinanceModule from "../pages/finance/index"
+import Profile from "../pages/profile/index"
 
 
 
@@ -62,7 +63,7 @@ const Routes = () => {
   // Define routes accessible only to authenticated users
   const routesForAuthenticatedOnly = [
     {
-      path: "/app",
+      path: "",
       element: 
       <Layout>
         <ProtectedRoute />
@@ -119,6 +120,10 @@ const Routes = () => {
           element: <div>Logout</div>,
         },
         {
+          path : "profile",
+          element : <Profile/>
+        },
+        {
             path: "*",
             element: <Page404/>,
             // on doit avoir une redirection vers une page 404
@@ -157,7 +162,7 @@ const Routes = () => {
   const router = createBrowserRouter(
     // routesForPublic
     [
-    ...routesForPublic,
+    // ...routesForPublic,
     ...(!token ? routesForNotAuthenticatedOnly : []),
     ...routesForAuthenticatedOnly
   ]

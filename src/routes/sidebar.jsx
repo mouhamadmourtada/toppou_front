@@ -12,17 +12,17 @@ const routes = [
     name: 'Dashboard', // name that appear in Sidebar
   },
   {
-    path: '/app/admin',
+    path: '/admin',
     icon: 'OutlineCogIcon',
     name: 'Administrateur',
   },
   {
-    path: '/app/admin/user',
+    path: '/admin/user',
     icon: 'PeopleIcon',
     name: 'Gestion des utilisateurs',
   },
   {
-    path: '/app/admin/role',
+    path: '/admin/role',
     icon: 'UserRole',
     name: 'Gestion des roles',
   },
@@ -32,7 +32,7 @@ const routes = [
     name: 'Todos',
   },
   {
-    path: '/app/projet',
+    path: '/projet',
     icon: 'ServiceIcon',
     name: 'Projets',
   },
@@ -42,17 +42,17 @@ const routes = [
   //   name: 'Charts',
   // },
   {
-    path: '/app/activite',
+    path: '/activite',
     icon: 'InProgressIcon',
     name: 'Activités',
   },
   {
-    path: '/app/depense',
+    path: '/depense',
     icon: 'MoneyIcon',
     name: 'Dépenses',
   },
   {
-    path: '/app/finance',
+    path: '/finance',
     icon: 'BankIcon',
     name: 'Finances',
   },

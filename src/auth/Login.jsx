@@ -65,7 +65,7 @@ const Login = () => {
         //     localStorage.setItem('date_naissance', data.user.date_naissance);
         //     localStorage.setItem('adresse', data.user.adresse);
         //     localStorage.setItem('lieu_naissance', data.user.lieu_naissance);
-            navigate("/app/", { replace: true });
+            navigate("/", { replace: true });
 
         }).catch((error) => {
             console.error('Error:', error);
@@ -76,7 +76,7 @@ const Login = () => {
         });
 
 
-        // navigate("/app/", { replace: true });
+        // navigate("/", { replace: true });
 
           
     }

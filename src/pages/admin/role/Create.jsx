@@ -42,7 +42,7 @@ const Create = () => {
             setLibelle('');
             toast.success("Rôle ajouté avec succès!")
             setTimeout(() => {
-                navigate("/app/admin/role")
+                navigate("/admin/role")
 
                 // setShowMessage(false);
             }, 3000);
@@ -75,21 +75,21 @@ const Create = () => {
                     <BreadcrumbList>
                         <BreadcrumbItem>
                         <BreadcrumbLink>
-                            <Link className='text-tertiaire' to="/app/dashboard">Home</Link>
+                            <Link className='text-tertiaire' to="/dashboard">Home</Link>
                         </BreadcrumbLink>
                         </BreadcrumbItem>
 
                         <BreadcrumbSeparator />
                         <BreadcrumbItem>
                         <BreadcrumbLink>
-                            <Link className='text-tertiaire' to="/app/admin">Admin</Link>
+                            <Link className='text-tertiaire' to="/admin">Admin</Link>
                         </BreadcrumbLink>
                         </BreadcrumbItem>
 
                         <BreadcrumbSeparator />
                         <BreadcrumbItem>
                         <BreadcrumbLink>
-                            <Link className='text-tertiaire' to="/app/admin/role">Role</Link>
+                            <Link className='text-tertiaire' to="/admin/role">Role</Link>
                         </BreadcrumbLink>
                         </BreadcrumbItem>
 
