@@ -62,7 +62,7 @@ const Routes = () => {
   // Define routes accessible only to authenticated users
   const routesForAuthenticatedOnly = [
     {
-      path: "/app",
+      path: "",
       element: 
       <Layout>
         <ProtectedRoute />
@@ -157,7 +157,7 @@ const Routes = () => {
   const router = createBrowserRouter(
     // routesForPublic
     [
-    ...routesForPublic,
+    // ...routesForPublic,
     ...(!token ? routesForNotAuthenticatedOnly : []),
     ...routesForAuthenticatedOnly
   ]

@@ -114,9 +114,9 @@ const Create = () => {
         if (responsePoste) {
             console.log(responsePoste)
             toast.success("Utilisateur ajouté avec succès")
-            // attendre 2 s avant de rediriger vers /app/admin/users
+            // attendre 2 s avant de rediriger vers /admin/users
             setTimeout(() => {
-                navigate("/app/admin/user")
+                navigate("/admin/user")
             }, 200)
         }
     }, [responsePoste]);
@@ -164,21 +164,21 @@ const Create = () => {
                     <BreadcrumbList>
                         <BreadcrumbItem>
                         <BreadcrumbLink>
-                            <Link className='text-tertiaire' to="/app/dashboard">Home</Link>
+                            <Link className='text-tertiaire' to="/dashboard">Home</Link>
                         </BreadcrumbLink>
                         </BreadcrumbItem>
 
                         <BreadcrumbSeparator />
                         <BreadcrumbItem>
                         <BreadcrumbLink>
-                            <Link className='text-tertiaire' to="/app/admin">Admin</Link>
+                            <Link className='text-tertiaire' to="admin">Admin</Link>
                         </BreadcrumbLink>
                         </BreadcrumbItem>
 
                         <BreadcrumbSeparator />
                         <BreadcrumbItem>
                         <BreadcrumbLink>
-                            <Link className='text-tertiaire' to="/app/admin/user">Users</Link>
+                            <Link className='text-tertiaire' to="/admin/user">Users</Link>
                         </BreadcrumbLink>
                         </BreadcrumbItem>
 
@@ -390,7 +390,7 @@ const Create = () => {
                         <div className='flex justify-between'>
                             <Button className = "bg-red-800 px-5 hover:bg-red-700 text-white" type="button" variant="secondary">
                             <span className='mr-3'>
-                                <Link to="/app/admin/user">
+                                <Link to="/admin/user">
                                     Annuler
                                 </Link>
                             </span>

@@ -86,21 +86,21 @@ const Show = () => {
                     <BreadcrumbList>
                         <BreadcrumbItem>
                         <BreadcrumbLink>
-                            <Link className='text-tertiaire' to="/app/dashboard">Home</Link>
+                            <Link className='text-tertiaire' to="/dashboard">Home</Link>
                         </BreadcrumbLink>
                         </BreadcrumbItem>
 
                         <BreadcrumbSeparator />
                         <BreadcrumbItem>
                         <BreadcrumbLink>
-                            <Link className='text-tertiaire' to="/app/admin">Admin</Link>
+                            <Link className='text-tertiaire' to="/admin">Admin</Link>
                         </BreadcrumbLink>
                         </BreadcrumbItem>
 
                         <BreadcrumbSeparator />
                         <BreadcrumbItem>
                         <BreadcrumbLink>
-                            <Link className='text-tertiaire' to="/app/admin/user">users</Link>
+                            <Link className='text-tertiaire' to="/admin/user">users</Link>
                         </BreadcrumbLink>
                         </BreadcrumbItem>
                        

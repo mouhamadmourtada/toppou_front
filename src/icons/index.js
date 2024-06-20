@@ -33,8 +33,10 @@ import UserRole from "./userRole.svg?react"
 import InProgressIcon from "./inProgress.svg?react"
 import BankIcon from "./bank.svg?react"
 import ServiceIcon from "./service.svg?react"
+import ViewIcon from "./view.svg?react"
 
 export {
+  ViewIcon,
   ServiceIcon,
   BankIcon,
   InProgressIcon,
