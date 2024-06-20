@@ -22,6 +22,7 @@ import ProjetModule from "../pages/projet/index"
 import ActiviteModule from "../pages/activite/index"
 import DepenseModule from "../pages/depense/index"
 import FinanceModule from "../pages/finance/index"
+import Profile from "../pages/profile/index"
 
 
 
@@ -117,6 +118,10 @@ const Routes = () => {
         {
           path: "logout",
           element: <div>Logout</div>,
+        },
+        {
+          path : "profile",
+          element : <Profile/>
         },
         {
             path: "*",
