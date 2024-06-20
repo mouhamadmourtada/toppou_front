@@ -23,11 +23,11 @@ export default [
         element: <Create/>,
       },
       {
-        path: "edit",
+        path: "edit/:idProjet",
         element: <Edit/>,
       },
       {
-        path: "show",
+        path: "show/:idProjet",
         element: <Show/>,
       }
     ]
