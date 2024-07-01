@@ -36,11 +36,12 @@ const useAxios = ({ url, method, headers = null }) => {
     }, []);
     
 
-    const fetchData = async (body = null) => {
+    const fetchData = async (body = null, newUrl = null) => {
         setLoading(true);
+       
         axios({
             method: method,
-            url: url,
+            url: newUrl? newUrl : url,
             data: body,
             headers:headers
         

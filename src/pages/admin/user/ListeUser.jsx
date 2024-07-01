@@ -4,6 +4,10 @@ import AddButton from '../../../components/AddButton';
 import useAxios from '../../../Hook/useAxios';
 import { Link } from 'react-router-dom';
 import {formatDate} from '../../../services/DateService'
+// import {Loader} from '@/components/Loader';
+import { Loader } from '../../../components/Loader';
+import MdPagination from '../../../components/MdPagination';
+
 
 import {
     Breadcrumb,
@@ -13,6 +17,16 @@ import {
     BreadcrumbPage,
     BreadcrumbSeparator,
   } from "@/components/ui/breadcrumb"
+
+  import {
+    Pagination,
+    PaginationContent,
+    PaginationEllipsis,
+    PaginationItem,
+    PaginationLink,
+    PaginationNext,
+    PaginationPrevious,
+  } from "@/components/ui/pagination"
 
 const ListeUsers = () => {
     const navigate = useNavigate();
@@ -35,6 +49,16 @@ const ListeUsers = () => {
 
     })
 
+    // preparer la requette pour la suppression d'un users
+    const {responseAxios: responseDelete, error: errorDelete, loading: loadingDelete, fetchData: fetchDataDelete} = useAxios({
+        url : `${urlListe}`,
+        method : "DELETE",
+        body : null,
+        headers : {
+            "Content-type" : "application/json"
+        }
+    })
+
    
     useEffect ( () => {
         fetchData();
@@ -48,13 +72,7 @@ const ListeUsers = () => {
 
    
 
-    const links = [
-        {
-            label : "Users",
-            lien : "/users",
-            icon : "HomeIcon"
-        }
-    ];
+   
 
     const goToAddUser = () => {
         navigate("/admin/user/create");
@@ -70,11 +88,32 @@ const ListeUsers = () => {
 
     const deleteUser = (id) => {
         console.log(id);
+        fetchDataDelete(null, `${urlListe}/${id}`);
+    }
+
+    useEffect(() => {
+        if(responseDelete){
+            fetchData();
+        }
+    }, [responseDelete])
+
+    const onPageChange = (page) => {
+        if(page < 0 || page > responseAxios.page.totalPages - 1)
+            return;
+        
+        fetchData(null, `${urlListe}?page=${page}`);
     }
 
 
     return (
-        <div>
+        <div className='mb-10'>
+            {(loading || loadingDelete ) && (
+                <div className='absolute h-screen w-screen flex justify-center items-center bg-gray-800 bg-opacity-30'>
+                    <Loader />
+                </div>
+
+            )}
+
             {/* breadcrumb */}
              <div className='my-3 font-semibold'>
                 <Breadcrumb>
@@ -105,7 +144,8 @@ const ListeUsers = () => {
                 <h2 className="mt-3 text-lg font-bold text-tertiaire">Liste des utilisateurs</h2>
                 <AddButton onClick = {goToAddUser}>Nouvel utilisateur</AddButton>
             </div>
-            { users && users.length > 0 &&
+            { users && users.length > 0 &&(
+                <>
                 <div className='bg-white'>
                     <div className="overflow-x-auto rounded shadow-xl">
                         <table className="table-auto w-full">
@@ -185,6 +225,18 @@ const ListeUsers = () => {
                         </table>
                     </div>
                 </div>
+
+                <div className='relative mt-4 flex justify-end mb-10 '>
+                   
+                    <div>
+                        
+                        <MdPagination page = {responseAxios.page.number} setPage = {onPageChange} totalPage = {responseAxios.page.totalPages} ></MdPagination>
+                    </div>
+
+                </div>
+                </>
+
+            )
             }
         </div>
     );
