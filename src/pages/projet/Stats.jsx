@@ -45,7 +45,13 @@ const Stats = () => {
                 </Breadcrumb>
 
             </div>
-            stats
+
+            <div>
+                <div>
+                    <h1 className='text-2xl font-semibold'>Dashboard projet</h1>
+                </div>
+                <Link to="/projet/liste">liste de projets </Link>
+            </div>
         </div>
     );
 }
