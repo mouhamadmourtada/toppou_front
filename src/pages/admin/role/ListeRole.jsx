@@ -34,7 +34,7 @@ const ListeRole = () => {
     }, [responseAxios]);
 
     const goToAddRole = () => {
-        navigate("admin/role/create");
+        navigate("/admin/role/create");
     };
 
     const handleView = (id) => {
