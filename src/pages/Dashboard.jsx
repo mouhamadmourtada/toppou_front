@@ -138,7 +138,7 @@ const Dashboard = () => {
     var chartOptions = {
         series: [successPercentage],
         chart: {
-          height: 350,
+        //   height: 350,
           type: 'radialBar',
           offsetY: -10
         },
@@ -255,6 +255,35 @@ const Dashboard = () => {
         }
     };
 
+    const budgetUtilizationOptions = {
+        series: [70, 50, 90, 30], // Valeurs représentant les pourcentages d'utilisation du budget des projets
+        chart: {
+          height: 500,
+          type: 'radialBar',
+        },
+        plotOptions: {
+          radialBar: {
+            dataLabels: {
+              name: {
+                fontSize: '22px',
+              },
+              value: {
+                fontSize: '16px',
+              },
+              total: {
+                show: true,
+                label: 'Budget',
+                formatter: function (w) {
+                  
+                  const total = w.globals.seriesTotals.reduce((a, b) => a + b, 0);
+                  return total / 2 + '%';
+                },
+              },
+            },
+          },
+        },
+        labels: ['Projet A', 'Projet B', 'Projet C', 'Projet D'], // Noms des projets
+      };
     
 
      
@@ -319,12 +348,11 @@ const Dashboard = () => {
 
                 <div className="mt-10 w-full">
 
-                    <div className="flex my-4 items-center justify-between gap-6">
-                        <div className="flex items-center justify-center w-1/3 bg-white  rounded-xl p-3 ">
-                            <ReactApexChart options={chartOptions} series={chartOptions.series} type="radialBar" height={chartOptions.chart.height} />
-                        </div>
+                    <div className="flex my-4 items-center justify-between h-full gap-6">
+                        
+                        
 
-                        <div className="flex-none w-2/3 overflow-hidden bg-white rounded-xl p-4 ">
+                        <div className="flex-none w-1/2 overflow-hidden bg-white rounded-xl p-4 ">
                             <h1 className="font-bold text-primaire text-2xl py-2">Projets récents</h1>
 
                             <div className="w-full flex  overflow-scroll gap-4 items-center h-full">
@@ -373,13 +401,24 @@ const Dashboard = () => {
                         ))}
                         </div>
                         </div>
+                        <div className="w-1/2 bg-white  rounded-xl p-4">
+                        <h1 className="font-bold text-primaire text-2xl py-2">Utilisation du budget</h1>
+                            {/* <h1 className="font-bold text-primaire text-2xl py-2">Projets récents</h1> */}
+
+                            {/* <ReactApexChart options={chartOptions} series={chartOptions.series} type="radialBar"  /> */}
+
+                            <div className="flex items-center justify-center">
+                                <ReactApexChart options={budgetUtilizationOptions} series={budgetUtilizationOptions.series} type="radialBar"/>
+                            </div>
+                            
+                        </div>
             
 
                     </div>
 
                     <div className="w-full flex  gap-6 mt-6">
                         <div className="flex-none w-1/2 overflow-hidden bg-white rounded-xl p-4 ">
-                            <h1 className="font-bold text-primaire text-2xl py-2">Depenses et financements mensules</h1>
+                            <h1 className="font-bold text-primaire text-2xl py-2">Dépenses et Financements</h1>
 
                             <ReactApexChart options={options} series={options.series} type="line" height={options.chart.height} />   
                          
