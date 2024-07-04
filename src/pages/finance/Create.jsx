@@ -120,7 +120,7 @@ const Create = () => {
 
             <div className="bg-white w-full shadow-xl border-gray-200 border-2 rounded-xl lg:flex py-3 px-5 ">
                 <div className="hidden lg:block w-1/2 lg:flex items-center  py-10 justify-center rounded-xl">
-                    <img src="/images/crowdfunding-concept-investment-idea-fund-260nw-2052146573.webp" alt="" />
+                    <img src="/images/financement.png" alt="" />
                 </div>
 
                 <div className="w-full lg:w-1/2 flex flex-col justify-center align-items-center pt-0 lg:w-2/3 lg:px-8  xl:px-10 ">

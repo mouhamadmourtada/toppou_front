@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import useAxios from '../../Hook/useAxios';
-import { FaDollarSign, FaCalendarAlt, FaSignature, FaInfoCircle } from "react-icons/fa";
 import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbPage, BreadcrumbSeparator } from "@/components/ui/breadcrumb";
+
+// Importer les images
+
 
 const ShowFinance = () => {
     const [finance, setFinance] = useState({});
@@ -63,20 +65,28 @@ const ShowFinance = () => {
                             <table className='table-auto w-full'>
                                 <tbody>
                                     <tr className='border-b border-gray-100'>
-                                        <td className='font-medium p-2 text-primaire flex items-center'><FaInfoCircle className='mr-2'/>Description :</td>
-                                        <td className='font-light text-tertiaire'>{finance.description}</td>
+                                        <td className='font-bold text-lg p-2 text-primaire flex items-center'>
+                                            <img src="/images/description.jpeg" alt="Description" className='mr-2 w-6 h-6'/>Description :
+                                        </td>
+                                        <td className='font-bold text-lg text-tertiaire'>{finance.description}</td>
                                     </tr>
                                     <tr className='border-b border-gray-100'>
-                                        <td className='font-medium p-2 text-primaire flex items-center'><FaDollarSign className='mr-2'/>Montant :</td>
-                                        <td className='font-light text-tertiaire'>{finance.montant}</td>
+                                        <td className='font-bold text-lg p-2 text-primaire flex items-center'>
+                                            <img src="/images/montant.jpeg" alt="Montant" className='mr-2 w-6 h-6'/>Montant :
+                                        </td>
+                                        <td className='font-bold text-lg text-tertiaire'>{finance.montant}</td>
                                     </tr>
                                     <tr className='border-b border-gray-100'>
-                                        <td className='font-medium p-2 text-primaire flex items-center'><FaSignature className='mr-2'/>Date de Signature :</td>
-                                        <td className='font-light text-tertiaire'>{finance.dateSignature}</td>
+                                        <td className='font-bold text-lg p-2 text-primaire flex items-center'>
+                                            <img src="/images/objectif.jpeg" alt="Date de Signature" className='mr-2 w-6 h-6'/>Objectif :
+                                        </td>
+                                        <td className='font-bold text-lg text-tertiaire'>{finance.objectif}</td>
                                     </tr>
                                     <tr className='border-b border-gray-100'>
-                                        <td className='font-medium p-2 text-primaire flex items-center'><FaCalendarAlt className='mr-2'/>Date d'Obtention :</td>
-                                        <td className='font-light text-tertiaire'>{finance.dateObtentionEffective}</td>
+                                        <td className='font-bold text-lg p-2 text-primaire flex items-center'>
+                                            <img src="/images/datefinancement.webp" alt="Date d'Obtention" className='mr-2 w-6 h-6'/>Date d'Obtention :
+                                        </td>
+                                        <td className='font-bold text-lg text-tertiaire'>{finance.dateObtentionEffective}</td>
                                     </tr>
                                 </tbody>
                             </table>
