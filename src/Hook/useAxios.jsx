@@ -4,7 +4,9 @@ import StorageService from '../services/StorageService';
 
 // import { set } from 'react-hook-form';
 
-axios.defaults.baseURL = 'http://localhost:8080';
+axios.defaults.baseURL = import.meta.env.VITE_API_URL;
+// const apiUrl = import.meta.env.VITE_API_URL;
+
 
 
 const useAxios = ({ url, method, headers = null }) => {
@@ -34,11 +36,12 @@ const useAxios = ({ url, method, headers = null }) => {
     }, []);
     
 
-    const fetchData = async (body = null) => {
+    const fetchData = async (body = null, newUrl = null) => {
         setLoading(true);
+       
         axios({
             method: method,
-            url: url,
+            url: newUrl? newUrl : url,
             data: body,
             headers:headers
         
