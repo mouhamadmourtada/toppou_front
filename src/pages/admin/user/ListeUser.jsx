@@ -121,7 +121,7 @@ const ListeUsers = () => {
                                     <th className='px-2 text-left py-3 uppercase' >Username</th>
                                     <th className='px-2 text-left py-3 uppercase' >Date de naissance</th>
 
-                                    <th className='max-w-20'>action</th>
+                                    <th className='max-w-20'>Action</th>
                                 </tr>
                             </thead>
                             <tbody className='text-tertiaire'>
@@ -160,8 +160,8 @@ const ListeUsers = () => {
                                             <div className="px-4 border-2 border-gray-200 flex justify-center rounded items-center space-x-2 text-sm max-w-20 shadow-xl p-0.5 bg-gray-100">
                                                 <div className="text-secondaire cursor-pointer" onClick={() => gotoViewUser(user.id)}>
                                                     <svg width="15" height="13" viewBox="0 0 18 15" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                        <path d="M1.57141 7.5C1.57141 7.5 4.37661 1.5 9.2857 1.5C14.1948 1.5 17 7.5 17 7.5C17 7.5 14.1948 13.5 9.2857 13.5C4.37661 13.5 1.57141 7.5 1.57141 7.5Z" stroke="#929EAE" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"></path>
-                                                        <path d="M9.2857 9.21429C10.2325 9.21429 11 8.44677 11 7.5C11 6.55323 10.2325 5.78571 9.2857 5.78571C8.33892 5.78571 7.57141 6.55323 7.57141 7.5C7.57141 8.44677 8.33892 9.21429 9.2857 9.21429Z" stroke="#929EAE" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"></path>
+                                                        <path d="M1.57141 7.5C1.57141 7.5 4.37661 1.5 9.2857 1.5C14.1948 1.5 17 7.5 17 7.5C17 7.5 14.1948 13.5 9.2857 13.5C4.37661 13.5 1.57141 7.5 1.57141 7.5Z" stroke="rgb(0, 255, 0)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"></path>
+                                                        <path d="M9.2857 9.21429C10.2325 9.21429 11 8.44677 11 7.5C11 6.55323 10.2325 5.78571 9.2857 5.78571C8.33892 5.78571 7.57141 6.55323 7.57141 7.5C7.57141 8.44677 8.33892 9.21429 9.2857 9.21429Z" stroke="rgb(0, 255, 0)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"></path>
                                                     </svg>
                                                 </div>
 

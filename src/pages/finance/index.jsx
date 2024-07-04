@@ -6,7 +6,7 @@ import Stats from "./Stats"
 import {Outlet} from "react-router-dom"
 
 export default [
-  {
+  { 
     path: "finance",
     element: <><Outlet/></>,
     children: [
@@ -23,11 +23,11 @@ export default [
         element: <Create/>,
       },
       {
-        path: "edit",
+        path: "edit/:id",
         element: <Edit/>,
       },
       {
-        path: "show",
+        path: "show/:financeId",
         element: <Show/>,
       }
     ]

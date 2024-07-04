@@ -36,11 +36,14 @@ const ListeRole = () => {
     const handleView = (id) => {
         console.log("View role with ID:", id);
         // Implement view functionality
+        navigate(`/app/admin/role/show/${id}`);
+       
     };
 
     const handleEdit = (id) => {
         console.log("Edit role with ID:", id);
         // Implement edit functionality
+        navigate(`/app/admin/role/edit/${id}`);
     };
 
     const handleDelete = (id) => {
@@ -79,7 +82,7 @@ const ListeRole = () => {
                                         <td className="px-3 py-3 border-b">{role.id}</td>
                                         <td className="px-3 py-3 border-b">{role.libelle}</td>
                                         <td className="px-3 py-3 border-b">{role.description}</td>
-                                        <td className='border-b flex justify-center items-center space-x-2 text-sm px-3 py-3 border-l'>
+                                        <td className='border-b flex justify-center items-center h-full text-sm px-3 py-3 border-l'>
                                             <div className="px-4 border-2 border-gray-200 flex justify-center rounded items-center space-x-2 text-sm max-w-20 shadow-xl p-0.5 bg-gray-100">
                                                 <div className="text-secondaire cursor-pointer" onClick={() => handleView(role.id)}>
                                                     <svg width="15" height="13" viewBox="0 0 18 15" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -95,9 +98,9 @@ const ListeRole = () => {
                                                     </svg>
                                                 </div>
 
-                                                <div className="text-secondaire cursor-pointer" onClick={() => handleDelete(role.id)}>
-                                                    <svg width="11" height="13" viewBox="0 0 13 15" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                        <path d="M1 4.5H2M2 4.5H12M2 4.5V12.1C2 12.3304 2.10536 12.55 2.29289 12.7121C2.48043 12.8743 2.73478 12.9643 3 12.9643H10C10.2652 12.9643 10.5196 12.8743 10.7071 12.7121C10.8946 12.55 11 12.3304 11 12.1V4.5H2ZM3.5 4.5V3.25C3.5 3.05109 3.57902 2.86032 3.71967 2.71967C3.86032 2.57902 4.05109 2.5 4.25 2.5H7.75C7.94891 2.5 8.13968 2.57902 8.28033 2.71967C8.42098 2.86032 8.5 3.05109 8.5 3.25V4.5M5.75 7V10M7.25 7V10" stroke="#929EAE" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"></path>
+                                                <div className="text-secondaire cursor-pointer" onClick={() => deleteUser(user.id)}>
+                                                    <svg width="15" height="17"  viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                        <path d="M1 4.5H2M2 4.5H12M2 4.5V12.1C2 12.3304 2.10536 12.55 2.29289 12.7121C2.48043 12.8743 2.73478 12.9643 3 12.9643H10C10.2652 12.9643 10.5196 12.8743 10.7071 12.7121C10.8946 12.55 11 12.3304 11 12.1V4.5H2ZM3.5 4.5V3.25C3.5 3.05109 3.57902 2.86032 3.71967 2.71967C3.86032 2.57902 4.05109 2.5 4.25 2.5H7.75C7.94891 2.5 8.13968 2.57902 8.28033 2.71967C8.42098 2.86032 8.5 3.05109 8.5 3.25V4.5M5.5 6.5V10.5M7.5 6.5V10.5" stroke="#ff0000" strokeLinecap="round" strokeLinejoin="round"></path>
                                                     </svg>
                                                 </div>
                                             </div>
