@@ -2,6 +2,7 @@ import React, { useContext, useState } from 'react'
 import { SidebarContext } from '../context/SidebarContext'
 import { useAuth } from "../provider/authProvider";
 import StorageService from '../services/StorageService';
+import { Link } from 'react-router-dom';
 
 import {
   SearchIcon,
@@ -130,7 +131,9 @@ function Header() {
                 <Avatar
                 size ="large"
                   className="align-middle p-1 bg-gris_clair"
-                  src="https://images.unsplash.com/photo-1502378735452-bc7d86632805?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=200&fit=max&s=aa3a807e1bbdfd4364d1f449eaa96d82"
+                  src=
+                  "https://plus.unsplash.com/premium_vector-1682269282372-6d888f3451f1?bg=FFFFFF&w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8YXZhdGFyfGVufDB8fDB8fHww"
+                  // "https://images.unsplash.com/photo-1502378735452-bc7d86632805?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=200&fit=max&s=aa3a807e1bbdfd4364d1f449eaa96d82"
                   alt=""
                   aria-hidden="true"
                 />
@@ -140,9 +143,10 @@ function Header() {
                 isOpen={isProfileMenuOpen}
                 onClose={() => setIsProfileMenuOpen(false)}
               >
-                <DropdownItem tag="a" href="#">
+                <DropdownItem tag="a">
                   <OutlinePersonIcon className="w-4 h-4 mr-3" aria-hidden="true" />
-                  <span>Profile</span>
+                  <Link to="/profile"> Profile</Link>
+                  {/* <span>Profile</span> */}
                 </DropdownItem>
                 <DropdownItem tag="a" href="#">
                   <OutlineCogIcon className="w-4 h-4 mr-3" aria-hidden="true" />

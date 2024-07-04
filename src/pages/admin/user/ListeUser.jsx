@@ -3,6 +3,11 @@ import { useNavigate } from "react-router-dom";
 import AddButton from '../../../components/AddButton';
 import useAxios from '../../../Hook/useAxios';
 import { Link } from 'react-router-dom';
+import {formatDate} from '../../../services/DateService'
+// import {Loader} from '@/components/Loader';
+import { Loader } from '../../../components/Loader';
+import MdPagination from '../../../components/MdPagination';
+
 
 import {
     Breadcrumb,
@@ -12,6 +17,16 @@ import {
     BreadcrumbPage,
     BreadcrumbSeparator,
   } from "@/components/ui/breadcrumb"
+
+  import {
+    Pagination,
+    PaginationContent,
+    PaginationEllipsis,
+    PaginationItem,
+    PaginationLink,
+    PaginationNext,
+    PaginationPrevious,
+  } from "@/components/ui/pagination"
 
 const ListeUsers = () => {
     const navigate = useNavigate();
@@ -34,6 +49,16 @@ const ListeUsers = () => {
 
     })
 
+    // preparer la requette pour la suppression d'un users
+    const {responseAxios: responseDelete, error: errorDelete, loading: loadingDelete, fetchData: fetchDataDelete} = useAxios({
+        url : `${urlListe}`,
+        method : "DELETE",
+        body : null,
+        headers : {
+            "Content-type" : "application/json"
+        }
+    })
+
    
     useEffect ( () => {
         fetchData();
@@ -47,51 +72,62 @@ const ListeUsers = () => {
 
    
 
-    const links = [
-        {
-            label : "Users",
-            lien : "/users",
-            icon : "HomeIcon"
-        }
-    ];
+   
 
     const goToAddUser = () => {
-        navigate("/app/admin/user/create");
+        navigate("/admin/user/create");
     };
 
     const gotoEditUser = (id) => {
-        navigate(`/app/admin/user/edit/${id}`);
+        navigate(`/admin/user/edit/${id}`);
     };
 
     const gotoViewUser = (id) => {
-        navigate(`/app/admin/user/show/${id}`);
+        navigate(`/admin/user/show/${id}`);
     }
 
     const deleteUser = (id) => {
         console.log(id);
+        fetchDataDelete(null, `${urlListe}/${id}`);
     }
 
-    const formatDate = (dateString) => {
-        const options = { year: 'numeric', month: '2-digit', day: '2-digit' };
-        return new Date(dateString).toLocaleDateString('fr-FR', options);
-      };
+    useEffect(() => {
+        if(responseDelete){
+            fetchData();
+        }
+    }, [responseDelete])
+
+    const onPageChange = (page) => {
+        if(page < 0 || page > responseAxios.page.totalPages - 1)
+            return;
+        
+        fetchData(null, `${urlListe}?page=${page}`);
+    }
+
 
     return (
-        <div>
+        <div className='mb-10'>
+            {(loading || loadingDelete ) && (
+                <div className='absolute h-screen w-screen flex justify-center items-center bg-gray-800 bg-opacity-30'>
+                    <Loader />
+                </div>
+
+            )}
+
             {/* breadcrumb */}
              <div className='my-3 font-semibold'>
                 <Breadcrumb>
                     <BreadcrumbList>
                         <BreadcrumbItem>
                         <BreadcrumbLink>
-                            <Link className='text-tertiaire' to="/app/dashboard">Home</Link>
+                            <Link className='text-tertiaire' to="/dashboard">Home</Link>
                         </BreadcrumbLink>
                         </BreadcrumbItem>
 
                         <BreadcrumbSeparator />
                         <BreadcrumbItem>
                         <BreadcrumbLink>
-                            <Link className='text-tertiaire' to="/app/admin">Admin</Link>
+                            <Link className='text-tertiaire' to="/admin">Admin</Link>
                         </BreadcrumbLink>
                         </BreadcrumbItem>
                        
@@ -103,11 +139,13 @@ const ListeUsers = () => {
                 </Breadcrumb>
 
             </div>
+            
             <div className='flex justify-between py-2'>
                 <h2 className="mt-3 text-lg font-bold text-tertiaire">Liste des utilisateurs</h2>
                 <AddButton onClick = {goToAddUser}>Nouvel utilisateur</AddButton>
             </div>
-            { users && users.length > 0 &&
+            { users && users.length > 0 &&(
+                <>
                 <div className='bg-white'>
                     <div className="overflow-x-auto rounded shadow-xl">
                         <table className="table-auto w-full">
@@ -156,8 +194,8 @@ const ListeUsers = () => {
                                         </td>
 
 
-                                        <td className='border-b flex justify-center items-center h-full text-sm px-3 py-3 border-l'>
-                                            <div className="px-4 border-2 border-gray-200 flex justify-center rounded items-center space-x-2 text-sm max-w-20 shadow-xl p-0.5 bg-gray-100">
+                                        <td className='border-b text-sm px-3 py-3 border-l'>
+                                            <div className="mx-auto px-4 border-2 border-gray-200 flex justify-center rounded items-center space-x-2 text-sm max-w-20 shadow-xl p-0.5 bg-gray-100 w-20">
                                                 <div className="text-secondaire cursor-pointer" onClick={() => gotoViewUser(user.id)}>
                                                     <svg width="15" height="13" viewBox="0 0 18 15" fill="none" xmlns="http://www.w3.org/2000/svg">
                                                         <path d="M1.57141 7.5C1.57141 7.5 4.37661 1.5 9.2857 1.5C14.1948 1.5 17 7.5 17 7.5C17 7.5 14.1948 13.5 9.2857 13.5C4.37661 13.5 1.57141 7.5 1.57141 7.5Z" stroke="#929EAE" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"></path>
@@ -187,6 +225,18 @@ const ListeUsers = () => {
                         </table>
                     </div>
                 </div>
+
+                <div className='relative mt-4 flex justify-end mb-10 '>
+                   
+                    <div>
+                        
+                        <MdPagination page = {responseAxios.page.number} setPage = {onPageChange} totalPage = {responseAxios.page.totalPages} ></MdPagination>
+                    </div>
+
+                </div>
+                </>
+
+            )
             }
         </div>
     );

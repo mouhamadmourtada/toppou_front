@@ -42,7 +42,7 @@ const Create = () => {
             setLibelle('');
             toast.success("Rôle ajouté avec succès!")
             setTimeout(() => {
-                navigate("/app/admin/role")
+                navigate("/admin/role")
 
                 // setShowMessage(false);
             }, 3000);
@@ -58,7 +58,7 @@ const Create = () => {
     }
 
     return (
-        <div className="min-h-full">
+        <div className="pb-10">
 
             {/* <h2 className="font-bold mb-8 placeholder-placeholder_color placeholder:text-sm placeholder:font-normal focus:border-primaire text-2xl text-primaire">Ajouter un role</h2> */}
             {
@@ -75,27 +75,27 @@ const Create = () => {
                     <BreadcrumbList>
                         <BreadcrumbItem>
                         <BreadcrumbLink>
-                            <Link className='text-tertiaire' to="/app/dashboard">Home</Link>
+                            <Link className='text-tertiaire' to="/dashboard">Home</Link>
                         </BreadcrumbLink>
                         </BreadcrumbItem>
 
                         <BreadcrumbSeparator />
                         <BreadcrumbItem>
                         <BreadcrumbLink>
-                            <Link className='text-tertiaire' to="/app/admin">Admin</Link>
+                            <Link className='text-tertiaire' to="/admin">Admin</Link>
                         </BreadcrumbLink>
                         </BreadcrumbItem>
 
                         <BreadcrumbSeparator />
                         <BreadcrumbItem>
                         <BreadcrumbLink>
-                            <Link className='text-tertiaire' to="/app/admin/role">Role</Link>
+                            <Link className='text-tertiaire' to="/admin/role">Role</Link>
                         </BreadcrumbLink>
                         </BreadcrumbItem>
 
                         <BreadcrumbSeparator />
                         <BreadcrumbItem>
-                        <BreadcrumbPage className="text-primaire font-semibold">Nouvel</BreadcrumbPage>
+                        <BreadcrumbPage className="text-primaire font-semibold">Nouveau</BreadcrumbPage>
                         </BreadcrumbItem>
                     </BreadcrumbList>
                 </Breadcrumb>
@@ -104,15 +104,15 @@ const Create = () => {
 
 
 
-            <div className="bg-white w-full shadow-xl border-gray-200 border-2 rounded-xl lg:flex py-3 px-5 ">
-                <div className="hidden lg:block w-1/2 lg:flex items-center  py-10 justify-center rounded-xl">
+            <div className="bg-white w-full shadow-xl border-gray-200 border-2 rounded-xl lg:flex pt-3 px-5 ">
+                <div className="hidden lg:block w-1/2 lg:flex items-center pt-10 pb-3 justify-center rounded-xl">
                     <img src="/images/roles.png" alt="" />
                 </div>
 
                 <div class="w-full lg:w-1/2 flex flex-col justify-center align-items-center pt-0 lg:w-2/3 lg:px-8  xl:px-10 ">
                     <form onSubmit={handleSubmit} className='w-full max-w-96 border-2 rounded-lg border-gray-100 shadow px-5 py-10 mx-auto'>
                         <div className="">
-                            <div class="flex-1 px-2 ">
+                            <div class="flex-1 ">
                                 <label className="block text-sm font-medium text-tertiaire text-primaire mb-0">Libellé</label>
                                 <input 
                                     type="text"
@@ -126,7 +126,7 @@ const Create = () => {
 
                         </div>
 
-                        <div className="mt-12 w-full ">
+                        <div className="mt-8 w-full ">
                             <label className="block text-sm font-medium text-tertiaire text-primaire mb-0 ">Description</label>
                             <textarea 
                                 className="w-full px-4 py-2 rounded-lg mt-2 border focus:border-primaire border-2 focus:bg-white focus:outline-none" 
@@ -139,11 +139,10 @@ const Create = () => {
                         </div>
                         <div className='mt-16 flex justify-center'>
                             <button 
-                                className="max-w-[200px] w-full transform rounded flex items-center  justify-center  bg-primaire hover:bg-primaire_hover   px-3 py-2 text-sm font-medium capitalize text-white  text-bold  transition-colors duration-300 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-50"
+                                className="w-full transform rounded flex items-center  justify-center  bg-primaire hover:bg-primaire_hover   px-3 py-3 text-sm font-medium capitalize text-white  text-bold  transition-colors duration-300 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-50"
                                 type="submit"
                                 disabled={loading}
                                 >
-
                                     <span className='mr-4'>
                                         Ajouter
                                     </span>
