@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import AddButton from '../../components/AddButton';
 import useAxios from '../../Hook/useAxios';
 import MdIcon from '../../components/MdIcon';
@@ -13,7 +13,7 @@ import {
     BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb"
 
-// import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 
 const ListeFinance = () => {
@@ -153,6 +153,6 @@ const ListeFinance = () => {
             }
         </div>
     );
-}
+};
 
 export default ListeFinance;

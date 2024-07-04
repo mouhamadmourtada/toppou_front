@@ -111,9 +111,9 @@ const ListeActivite = () => {
                                 <tr className='bg-primaire text-white text-xs font-semi-bold tracking-wide uppercase'>
                                     <th className='px-2 text-left py-3 uppercase'>ID</th>
                                     <th className='px-2 text-left py-3 uppercase'>Libelle</th>
-                                    <th className='px-2 text-left py-3 uppercase'>dateDebutActivite</th>
-                                    <th className='px-2 text-left py-3 uppercase'>dateFinEffective</th>
-                                    <th className='px-2 text-left py-3 uppercase'>etat</th>
+                                    <th className='px-2 text-left py-3 uppercase'>Date de Début</th>
+                                    <th className='px-2 text-left py-3 uppercase'>Date de Fin</th>
+                                    <th className='px-2 text-left py-3 uppercase'>État</th>
                                     <th className='max-w-20'>Action</th>
                                 </tr>
                             </thead>
@@ -156,6 +156,6 @@ const ListeActivite = () => {
             }
         </div>
     );
-}
+};
 
 export default ListeActivite;
