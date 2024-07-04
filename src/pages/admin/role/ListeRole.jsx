@@ -41,12 +41,15 @@ const ListeRole = () => {
         console.log("View role with ID:", id);
         navigate(`/admin/role/show/${id}`)
         // Implement view functionality
+        navigate(`/app/admin/role/show/${id}`);
+       
     };
 
     const handleEdit = (id) => {
         console.log("Edit role with ID:", id);
         navigate(`/admin/role/edit/${id}`)
         // Implement edit functionality
+        navigate(`/app/admin/role/edit/${id}`);
     };
 
     const handleDelete = (id) => {
