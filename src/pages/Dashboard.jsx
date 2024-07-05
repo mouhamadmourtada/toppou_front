@@ -85,8 +85,8 @@ const Dashboard = () => {
           ),
         },
         {
-            title: 'Equipes',
-            value: '10',
+            title: 'Finance',
+            value: '190M',
             svg: (
                 <svg xmlns="http://www.w3.org/2000/svg"  className="text-primaire" width="30" height="30" viewBox="0 0 24 24"><path fill="currentColor" d="M12 10a4 4 0 1 0 0-8a4 4 0 0 0 0 8Zm-6.5 3a2.5 2.5 0 1 0 0-5a2.5 2.5 0 0 0 0 5ZM21 10.5a2.5 2.5 0 1 1-5 0a2.5 2.5 0 0 1 5 0Zm-9 .5a5 5 0 0 1 5 5v6H7v-6a5 5 0 0 1 5-5Zm-7 5c0-.693.1-1.362.288-1.994l-.17.014A3.5 3.5 0 0 0 2 17.5V22h3v-6Zm17 6v-4.5a3.5 3.5 0 0 0-3.288-3.494c.187.632.288 1.301.288 1.994v6h3Z"/></svg>
             ),
@@ -119,34 +119,34 @@ const Dashboard = () => {
 
     const latestProjectsData = [
     {
-        title: 'Redesign du Site Web',
+        chefProjetName: 'Saliou NIANE',
         completion: 70,
-        description: 'Refonte complète du site web pour améliorer l\'expérience utilisateur.',
+        description: 'Un logiciel de gestion de projet',
         budget: '15,000€',
-        teamName: 'Équipe Créative',
+        projectTitle: 'Toppou',
         projectManager: 'Alexandre Dupont'
     },
     {
-        title: 'Développement d\'une Application Mobile',
+        chefProjetName: 'Cheikh GAYE',
         completion: 45,
-        description: 'Création d\'une application mobile',
+        description: 'Projet T.E.R (train à express régional) pour améliorer le transport en commun.',
         budget: '25,000€',
-        teamName: 'Équipe Mobile',
+        projectTitle: 'T.E.R',
         projectManager: 'Marie Joly'
     },
     {
-        title: 'Campagne Marketing Digitale',
+        chefProjetName: 'Arona NDIAYE',
         completion: 90,
-        description: 'Lancement d\'une nouvelle campagne marketing pour augmenter la notoriété de la marque.',
+        description: 'Projet BRT (bus rapid transit) pour améliorer le transport en commun.',
         budget: '10,000€',
-        teamName: 'Équipe Marketing',
+        projectTitle: 'B.R.T',
         projectManager: 'Lucas Martin'
     },
     ];
 
     const successPercentage = 70;
     
-    var chartOptions = {
+    const chartOptions = {
         series: [successPercentage],
         chart: {
         //   height: 350,
@@ -194,7 +194,7 @@ const Dashboard = () => {
 
     };
 
-    var options = {
+    const options = {
         series: [
           {
             name: "Dépenses",
@@ -366,16 +366,17 @@ const Dashboard = () => {
 
                                 <div key={index} className="flex-none p-4 bg-slate-50 rounded-lg shadow-md mb-4 w-2/3 flex flex-col justify-between">
                                     <div className="flex gap-4">
-                                        <div className="bg-red-400 p-4 rounded-xl">
-                                            <svg xmlns="http://www.w3.org/2000/svg" className="text-white" width="20" height="20" viewBox="0 0 24 24">
-                                                <path fill="currentColor" d="M12 2C6.48 2 2 6.48 2 12c0 5.52 4.48 10 10 10c5.52 0 10-4.48 10-10c0-5.52-4.48-10-10-10Zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8s8 3.59 8 8s-3.59 8-8 8Zm-1-13h2v6h-2Zm0 8h2v2h-2Z"/></svg>
+                                        <div className="bg-gray-100 p-4 rounded-xl">
+                                            <svg xmlns="http://www.w3.org/2000/svg" className="text-primaire" width="20" height="20" viewBox="0 0 24 24">
+                                                <path fill="currentColor" d="M12 2C6.48 2 2 6.48 2 12c0 5.52 4.48 10 10 10c5.52 0 10-4.48 10-10c0-5.52-4.48-10-10-10Zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8s8 3.59 8 8s-3.59 8-8 8Zm-1-13h2v6h-2Zm0 8h2v2h-2Z"/>
+                                            </svg>
                                         </div>
                                         <div className="flex flex-col  space-y-1 items-start">
                                             <div className="bg-primaire py-1 px-2 rounded-md">
-                                                <h2 className="text-white text-sm m-0">{project.teamName}</h2>
+                                                <h2 className="text-white text-sm m-0">{project.projectTitle}</h2>
                                             </div>
                                             <div>
-                                                <h2 className="text-sm font-bold">{project.title}</h2>
+                                                <h2 className="text-sm font-bold">{project.chefProjetName}</h2>
                                             </div>
                                         </div>
                                     </div>
@@ -390,15 +391,15 @@ const Dashboard = () => {
                                     <hr className="my-4" />
                                     <ProgressBar percent={project.completion} />
                                     <div className="flex">
-                                        <p className=" text-sm text-slate-400">Derniere modification:</p>
+                                        <p className=" text-sm text-slate-400">Date de fin prévue :</p>
                                         <p className="text-sm ml-2"> 22 Mai 2024</p>
                                     </div>
 
 
-                                {/* <h3 className="font-medium text-lg">{project.title}</h3>
+                                {/* <h3 className="font-medium text-lg">{project.chefProjetName}</h3>
                                 <p className="text-sm text-gray-500 mb-2">{project.description}</p>
                                 <div className="mt-2">
-                                    <p><strong>Équipe :</strong> {project.teamName}</p>
+                                    <p><strong>Équipe :</strong> {project.projectTitle}</p>
                                     <p><strong>Chef de projet :</strong> {project.projectManager}</p>
                                 </div>
                                 <ProgressBar percent={project.completion} /> */}
