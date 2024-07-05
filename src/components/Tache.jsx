@@ -1,6 +1,7 @@
 import React from "react";
 import { CiEdit } from "react-icons/ci";
 import { IoMdAdd } from "react-icons/io";
+import { Draggable } from "react-beautiful-dnd";
 
 export default function Tache({titre, description, action}) {
     return (
