@@ -4,6 +4,7 @@ import Edit from "./Edit";
 import Show from "./Show"
 import Stats from "./Stats"
 import {Outlet} from "react-router-dom"
+import Taches from "./Taches";
 
 export default [
   {
@@ -29,6 +30,10 @@ export default [
       {
         path: "show/:idProjet",
         element: <Show/>,
+      },
+      {
+        path : ":idProjet/taches",
+        element : <Taches/>
       }
     ]
   }
