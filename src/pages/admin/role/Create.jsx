@@ -45,7 +45,7 @@ const Create = () => {
                 navigate("/admin/role")
 
                 // setShowMessage(false);
-            }, 3000);
+            }, 300);
         }
     }, [responseAxios, hasSubmitted] ); 
     
