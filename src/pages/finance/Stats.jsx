@@ -9,6 +9,7 @@ import {
     BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb"
 import { Link } from 'react-router-dom';
+import FinanceMoinsDepenseChart from "./partials/FinanceMoinsDepenseChart";
 
 const Stats = () => {
     return (
@@ -44,6 +45,18 @@ const Stats = () => {
                 </Breadcrumb>
 
             </div>
+
+            <div>
+                <div className="flex justify-between items-center">
+                    <h1 className='text-2xl font-semibold'>Dashboard Finance</h1>
+                    <div>
+                        <Link className="bg-primaire text-white py-1 px-2 rounded-lg" to="/finance/liste">Voir tous les finance </Link>
+
+                    </div>
+                </div>
+            </div>
+
+            {/* <FinanceMoinsDepenseChart></FinanceMoinsDepenseChart> */}
             stats sur les finance
         </div>
     );

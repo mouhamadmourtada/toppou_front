@@ -75,7 +75,10 @@ export default function Taches() {
           const taches = column.taches.map((tacheId) => dataTaches.taches[tacheId]);
           return (
             <div className='bg-white w-1/3 mx-2 rounded-lg h-fit' key={columnId}>
-              <h2 className="my-3 px-3 text-base pb-4 font-bold text-primaire">{column.title}</h2>
+              <div className="flex justify-start items-center">
+                <h2 className="my-3 px-3 text-base m-4 font-bold text-gray-900 bg-gray-100 rounded ">{column.title}</h2>
+
+              </div>
               {taches.map((tache) => (
                 <Tache titre={tache.titre} description={tache.description} key={columnId}/>
               ))}

@@ -20,6 +20,7 @@ import ReactApexChart from "react-apexcharts";
 import AddButton from '../../components/AddButton';
 import Acteur from './partials/Acteur';
 import Financement from './partials/Financement';
+import FourActivities from './partials/FourActivities';
 
 const Show = () => {
     const options = {
@@ -140,7 +141,12 @@ const Show = () => {
                             </p>
                             <div className='flex gap-5'>
                                 <p className='text-sm font-normal bg-green-200 text-green-800 rounded-lg px-2 py-1' >Status</p>
-                                <button className='font-normal bg-primaire hover:bg-primaire_hover text-white text-sm px-2 py-1 ml-2 rounded-lg'>Modifier</button>
+                                <button className='font-normal bg-primaire hover:bg-primaire_hover text-white text-sm px-2 py-1 ml-2 rounded-lg'>
+                                    <Link to="/projet/1/edit">
+                                        Modifier
+                                    </Link>
+                                    
+                                </button>
 
                             </div>
                         </div>
@@ -240,8 +246,17 @@ const Show = () => {
                         </div>
                     </div>
 
+                    {/* financement */}
                     <div className='mb-5 rounded-lg p-5 shadow-xl border-2 border-gray-200 bg-white overflow-x-scroll'>
-                        <h1 className="font-bold text-primaire text-2xl py-2">Financements</h1>
+                        <div className="flex justify-between items-center">
+                            <h1 className="font-bold text-primaire text-2xl py-2">Financements</h1>
+                            <button className='font-normal bg-primaire hover:bg-primaire_hover text-white text-sm px-2 py-1 ml-2 rounded-lg'>
+                                <Link to="/finance/create">
+                                    Ajouter
+                                </Link>
+                            </button>
+
+                        </div>
 
                         <div className='max-w-xl items-center gap-2 mt-4 flex justify-around '>
                             <Financement className={"mb-5"}/>
@@ -255,10 +270,25 @@ const Show = () => {
                         </div>
 
                     </div>
+                    {/* activités */}
+                    <div className='mb-5 rounded-lg p-5 shadow-xl border-2 border-gray-200 bg-white overflow-x-scroll items-center'>
+                        <div className='flex justify-between items-center'>
+                            <h1 className="font-bold text-primaire text-2xl py-2">Activités</h1>
+                            {/* voir tout */}
+                            <button className='font-normal bg-primaire hover:bg-primaire_hover text-white text-sm px-2 py-1 ml-2 rounded-lg'>
+                                <Link to="/projet/1/taches">
+                                    Voir tout
+                                </Link>
+                            </button>
 
-                    <div className='mb-5 rounded-lg p-5 shadow-xl border-2 border-gray-200 bg-white overflow-x-scroll'>
-                        <h1 className="font-bold text-primaire text-2xl py-2">Activités</h1>
+                        </div>
+                            
+                        <div className='relative max-w-4xl overflow-hidden'>
+                            <div className=''>
+                                <FourActivities/>
 
+                            </div>
+                        </div>
 
                     </div>
 

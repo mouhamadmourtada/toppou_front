@@ -26,11 +26,11 @@ const routes = [
     icon: 'UserRole',
     name: 'Gestion des roles',
   },
-  {
-    path: 'todos',
-    icon: 'FormsIcon',
-    name: 'Todos',
-  },
+  // {
+  //   path: 'todos',
+  //   icon: 'FormsIcon',
+  //   name: 'Todos',
+  // },
   {
     path: '/projet',
     icon: 'ServiceIcon',

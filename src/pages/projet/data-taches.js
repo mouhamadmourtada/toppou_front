@@ -24,7 +24,29 @@ const dataTaches = {
         id: "5",
         titre: "Gestion des taches",
         description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta, tempore."
+      },
+      "6": {
+        id: "6",
+        titre: "Gestion des taches",
+        description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta, tempore."
+      },
+      "7": {
+        id: "7",
+        titre: "Gestion des taches",
+        description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta, tempore."
+      },
+      "8": {
+        id: "8",
+        titre: "Gestion des taches",
+        description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta, tempore."
+      },
+      "9": {
+        id: "9",
+        titre: "Gestion des taches",
+        description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta, tempore."
       }
+
+
     
     },
     columns:{
@@ -36,12 +58,12 @@ const dataTaches = {
       "col2":{
         "id": "col2",
         "title": "En cours",
-        "taches": ["4"]
+        "taches": ["4", "6", "7"]
       },
       "col3":{
         "id": "col3",
         "title": "Terminées",
-        "taches": ["5"]
+        "taches": ["5", "8", "9"]
       }
     },
     columnOrder: ["col1","col2","col3"]

@@ -6,7 +6,9 @@ import {
     BreadcrumbList,
     BreadcrumbPage,
     BreadcrumbSeparator,
-  } from "@/components/ui/breadcrumb"
+} from "@/components/ui/breadcrumb"
+import ChartActiviteDelais from './components/ChartActiviteDelais';
+import ChartActiviteCout from './components/ChartActiviteCout';
 
 import { Link } from 'react-router-dom';
 
@@ -44,7 +46,25 @@ const Stats = () => {
                 </Breadcrumb>
 
             </div>
-            stats
+            <div>
+                <div className="flex justify-between items-center">
+                    <h1 className='text-2xl font-semibold'>Dashboard Activites</h1>
+                    <div>
+                        <Link className="bg-primaire text-white py-1 px-2 rounded-lg" to="/activite/liste">Voir tous les activités </Link>
+
+                    </div>
+                </div>
+            </div>
+
+            <div className='bg-white rounded-xl my-5 shadow p-5 md:flex items-center'>
+                <div className='w-1/2 h-96'>
+                    <ChartActiviteDelais/>
+                </div>
+                <div className='w-1/2 h-96'>
+                    <ChartActiviteCout/>
+                </div>
+
+            </div>
         </div>
     );
 }
