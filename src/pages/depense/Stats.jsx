@@ -44,6 +44,16 @@ const Stats = () => {
                 </Breadcrumb>
 
             </div>
+
+            <div>
+                <div className="flex justify-between items-center">
+                    <h1 className='text-2xl font-semibold'>Dashboard dépenses</h1>
+                    <div>
+                        <Link className="bg-primaire text-white py-1 px-2 rounded-lg" to="/depense/liste">Voir tous les dépenses </Link>
+
+                    </div>
+                </div>
+            </div>
             stats
         </div>
     );
